@@ -70,4 +70,9 @@ public class Interactable : MonoBehaviour
         Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
 
+    public virtual void StopInteracting()
+    {
+        hasInteracted = true;
+    }
+
 }

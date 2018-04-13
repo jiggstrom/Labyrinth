@@ -132,6 +132,8 @@
      <Compile Include="Assets\CaveGenerator\Scripts\Modules - Outlines\PrefabPicker\WeightedPrefabPicker.cs" />
      <Compile Include="Assets\CaveGenerator\Scripts\Modules\Module.cs" />
      <Compile Include="Assets\CaveGenerator\Scripts\Threading\Threading.cs" />
+     <Compile Include="Assets\ChestInteractable.cs" />
+     <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Scripts\CanvasManager.cs" />
      <Compile Include="Assets\Scripts\InteractableBase.cs" />
      <Compile Include="Assets\Scripts\KeyManager.cs" />

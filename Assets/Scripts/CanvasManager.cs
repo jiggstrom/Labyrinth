@@ -6,8 +6,14 @@ using UnityEngine;
 [Serializable]
 public class CanvasManager : MonoBehaviour {
 
-    public GameObject WinningScreen = null;
+    //public GameObject WinningScreen = null;
     public GameObject Inventory;
     public GameObject Minimap;
     public GameObject Crosshair;
+    public GameObject LootScreen;
+
+    public void CloseLootscreen()
+    {
+        LootScreen.SetActive(false);
+    }
 }
