@@ -7,13 +7,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F34E792A-23D0-340A-3050-8E3F5AC8F7AB}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp.dll</AssemblyName>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.0f3</UnityVersion>
@@ -375,11 +376,14 @@
     <Compile Include="Assets\CaveGenerator\Scripts\Modules - Outlines\PrefabPicker\WeightedPrefabPicker.cs" />
     <Compile Include="Assets\CaveGenerator\Scripts\Modules\Module.cs" />
     <Compile Include="Assets\CaveGenerator\Scripts\Threading\Threading.cs" />
+    <Compile Include="Assets\ChestInteractable.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Scripts\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\InteractableBase.cs" />
     <Compile Include="Assets\Scripts\KeyManager.cs" />
     <Compile Include="Assets\Scripts\MiniMapScript.cs" />
     <Compile Include="Assets\torch\scripts\Torchelight.cs" />
+    <Compile Include="Assets\ZombieManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NaturalTilingTextures\External\ShaderForge_NTT_Triplanar.shader" />
