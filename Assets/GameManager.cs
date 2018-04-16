@@ -18,13 +18,13 @@ public class GameManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        //if (Input.GetButtonDown("Minimap"))
-        //{
-        //    if (Canvas.MiniMap.activeInHierarchy)
-        //        Canvas.MiniMap.SetActive(false);
-        //    else
-        //        Canvas.MiniMap.SetActive(true);
-        //}
+        if (Input.GetButtonDown("Fire2"))
+        {
+            if (Canvas.Minimap.activeInHierarchy)
+                Canvas.Minimap.SetActive(false);
+            else
+                Canvas.Minimap.SetActive(true);
+        }
         //if (Input.GetButtonDown("Inventory"))
         //{
         //    if (Inventory.activeInHierarchy)
