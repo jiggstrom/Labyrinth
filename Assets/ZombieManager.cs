@@ -45,7 +45,7 @@ public class ZombieManager : MonoBehaviour
             velocity = smoothDeltaPosition / Time.deltaTime;
 
         bool shouldMove = velocity.magnitude > 0.5f && _ma.remainingDistance > (_ma.stoppingDistance +.5);
-        Debug.Log("rem.dist:" +_ma.remainingDistance);
+        // Debug.Log("rem.dist:" +_ma.remainingDistance);
 
         // Switch between idle and walk
         if (shouldMove)
