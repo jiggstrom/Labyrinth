@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     private Interactable currentInteractable;
 
+    public List<Loot> inventory;
+    private int energy;
+    private int hunger;
+    private int temperatureOffset;
 
 	// Use this for initialization
 	void Start () {
@@ -25,13 +29,13 @@ public class GameManager : MonoBehaviour
             else
                 Canvas.Minimap.SetActive(true);
         }
-        //if (Input.GetButtonDown("Inventory"))
-        //{
-        //    if (Inventory.activeInHierarchy)
-        //        Inventory.SetActive(false);
-        //    else
-        //        Inventory.SetActive(true);
-        //}
+        if (Input.GetButtonDown("Inventory"))
+        {
+            if (Canvas.Inventory.activeInHierarchy)
+                Canvas.Inventory.SetActive(false);
+            else
+                Canvas.Inventory.SetActive(true);
+        }
         if (Input.GetButtonDown("Cancel"))
         {
             if (Canvas.LootScreen.activeInHierarchy)
@@ -40,18 +44,40 @@ public class GameManager : MonoBehaviour
                 LootTaken();
             }
         }
-
     }
 
-    internal void LootFound(string loot, Interactable interactable)
+    internal void RemoveInventoryItem(Loot loot)
+    {
+        inventory.Remove(loot);
+    }
+
+    internal void LootFound(Loot loot, Interactable interactable)
     {
         currentInteractable = interactable;
         Canvas.LootScreen.SetActive(true);
+        var screen = Canvas.LootScreen.GetComponent<LootScreen>();
+        if(screen != null)
+        {
+            if (loot != null)
+            {
+                screen.Text.text = "Du hittade " + loot.name;
+                screen.Image.sprite = loot.InventoryImage;
+                inventory.Add(loot);
+            }
+            else
+            {
+                screen.Text.text = "Du hittade ingenting";
+                screen.Image.sprite = null;
+            }
+        }
     }
 
     internal void LootTaken()
     {
-        currentInteractable.StopInteracting();
-        currentInteractable = null;
+        if (currentInteractable != null)
+        {
+            currentInteractable.StopInteracting();
+            currentInteractable = null;
+        }
     }
 }

@@ -157,6 +157,12 @@ Prefab:
       propertyPath: Canvas
       value: 
       objectReference: {fileID: 1980175149}
+    - target: {fileID: 114770216002986946, guid: 1ad60190470c8904c833f021be513271,
+        type: 2}
+      propertyPath: loot
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ddfad221322966478f500379ee489b1,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ad60190470c8904c833f021be513271, type: 2}
   m_IsPrefabParent: 0
@@ -377,7 +383,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: "St\xE4ng"
 --- !u!222 &182817190
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -394,6 +400,7 @@ GameObject:
   - component: {fileID: 199160347}
   - component: {fileID: 199160349}
   - component: {fileID: 199160348}
+  - component: {fileID: 199160350}
   m_Layer: 5
   m_Name: Loot
   m_TagString: Untagged
@@ -414,6 +421,7 @@ RectTransform:
   - {fileID: 1425909560}
   - {fileID: 1168447866}
   - {fileID: 1476931621}
+  - {fileID: 281582091}
   m_Father: {fileID: 1980175153}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -455,6 +463,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199160346}
+--- !u!114 &199160350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199160346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb8933b3240f6684fbaf82ba4129ec55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 1476931622}
+  Image: {fileID: 281582092}
 --- !u!1001 &247800392
 Prefab:
   m_ObjectHideFlags: 0
@@ -660,9 +681,81 @@ Prefab:
       propertyPath: m_Name
       value: InventorySlot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1648066235678892, guid: 7ca7516e11b09a141a7f91bfa2927b01, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ca7516e11b09a141a7f91bfa2927b01, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &281582090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 281582091}
+  - component: {fileID: 281582093}
+  - component: {fileID: 281582092}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &281582091
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281582090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 199160347}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000030518, y: -0.000005722}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &281582092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281582090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &281582093
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 281582090}
 --- !u!224 &290449387 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224911959547294960, guid: 7ca7516e11b09a141a7f91bfa2927b01,
@@ -1503,6 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d90b09d4aadcc4aa126bf0c4bf0e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Slots: {fileID: 1961103247}
 --- !u!1 &777012655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,8 +2905,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 2.15, y: 85.86}
+  m_SizeDelta: {x: 373.87, y: 40.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1476931622
 MonoBehaviour:
@@ -2840,7 +2934,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2921,6 +3015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 963634688}
   Canvas: {fileID: 1980175154}
+  inventory: []
 --- !u!4 &1608913186
 Transform:
   m_ObjectHideFlags: 0
@@ -3669,7 +3764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da154b2c604ba34f92798dedeed23b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 743636700}
   Minimap: {fileID: 2014034529}
   Crosshair: {fileID: 1963031645}
   LootScreen: {fileID: 199160346}
@@ -4001,6 +4096,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_MouseLook.lockCursor
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
