@@ -2,59 +2,68 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour
 {
+    #region "Singelton"
+    public static GameManager instance;
+    public void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Multiple instances of gamemanager found!");
+            return;
+        }
+        instance = this;
+    }
+    #endregion
+
     public GameObject Player;
     public CanvasManager Canvas;
 
     private Interactable currentInteractable;
 
-    public List<Loot> inventory;
     private int energy;
     private int hunger;
     private int temperatureOffset;
+    private FirstPersonController fpc;
 
-	// Use this for initialization
-	void Start () {
-		
+    // Use this for initialization
+    void Start () {
+        fpc = Player.GetComponent<FirstPersonController>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetButtonDown("Fire2"))
         {
-            if (Canvas.Minimap.activeInHierarchy)
-                Canvas.Minimap.SetActive(false);
-            else
-                Canvas.Minimap.SetActive(true);
+            Canvas.ToggleMinimap();
         }
         if (Input.GetButtonDown("Inventory"))
         {
-            if (Canvas.Inventory.activeInHierarchy)
-                Canvas.Inventory.SetActive(false);
-            else
-                Canvas.Inventory.SetActive(true);
+            Canvas.ToggleInventory();
         }
         if (Input.GetButtonDown("Cancel"))
         {
             if (Canvas.LootScreen.activeInHierarchy)
             {
-                Canvas.LootScreen.SetActive(false);
+                Canvas.CloseLootscreen();
                 LootTaken();
             }
         }
+        fpc.MouseLookEnabled = !Canvas.UIActive;
     }
 
     internal void RemoveInventoryItem(Loot loot)
     {
-        inventory.Remove(loot);
+        Inventory.instance.RemoveInventoryItem(loot);
     }
 
-    internal void LootFound(Loot loot, Interactable interactable)
+    internal bool LootFound(Loot loot, Interactable interactable)
     {
         currentInteractable = interactable;
-        Canvas.LootScreen.SetActive(true);
+        Canvas.ShowLootScreen();
         var screen = Canvas.LootScreen.GetComponent<LootScreen>();
         if(screen != null)
         {
@@ -62,14 +71,16 @@ public class GameManager : MonoBehaviour
             {
                 screen.Text.text = "Du hittade " + loot.name;
                 screen.Image.sprite = loot.InventoryImage;
-                inventory.Add(loot);
+                return Inventory.instance.AddLoot(loot);
             }
             else
             {
                 screen.Text.text = "Du hittade ingenting";
                 screen.Image.sprite = null;
+                return false;
             }
         }
+        return false;
     }
 
     internal void LootTaken()

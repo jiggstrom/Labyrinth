@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyManager : MonoBehaviour {
-    //public GameObject MiniMap;
-    //public GameObject Inventory;
-
     public Camera cam;
     public GameObject crosshair;
 
@@ -23,17 +20,20 @@ public class KeyManager : MonoBehaviour {
         //If we press right mouse
         if (Input.GetButtonDown("Fire1"))
         {
-            // We create a ray
-            Ray ray = cam.ScreenPointToRay(crosshair.transform.position);
-            RaycastHit hit;
-
-            // If the ray hits
-            if (Physics.Raycast(ray, out hit, 100))
+            if (GameManager.instance.Canvas.UIActive == false)
             {
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if (interactable != null)
+                // We create a ray
+                Ray ray = cam.ScreenPointToRay(crosshair.transform.position);
+                RaycastHit hit;
+
+                // If the ray hits
+                if (Physics.Raycast(ray, out hit, 100))
                 {
-                    interactable.Interact();
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        interactable.Interact();
+                    }
                 }
             }
         }
