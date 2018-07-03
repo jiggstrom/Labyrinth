@@ -6,7 +6,6 @@ using UnityEngine;
 public class ChestInteractable : Interactable
 {
     public GameObject Lid;
-    public GameObject Canvas;
     public Loot loot;
 
     public override void Interact()

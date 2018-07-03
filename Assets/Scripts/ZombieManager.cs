@@ -5,14 +5,13 @@ using UnityEngine.AI;
 
 public class ZombieManager : MonoBehaviour
 {
-
-    public GameManager GameManager;
-
     private Vector3 _lastFramePosition;
     private Animator _anim;
     private NavMeshAgent _ma;
     Vector2 smoothDeltaPosition = Vector2.zero;
     Vector2 velocity = Vector2.zero;
+    private bool _onWay;
+    private bool _attacking = false;
 
     void Start()
     {
@@ -20,10 +19,17 @@ public class ZombieManager : MonoBehaviour
         _anim = this.GetComponent<Animator>();
         _anim.Play("idle");
         _lastFramePosition = transform.position;
-
-        _ma.SetDestination(GameManager.Player.transform.position);
+        _onWay = false;
+        _attacking = false;
         _ma.updatePosition = false;
 
+    }
+
+    public bool OnWay {
+        get
+        {
+            return _onWay;
+        }
     }
 
     // Update is called once per frame
@@ -48,10 +54,17 @@ public class ZombieManager : MonoBehaviour
         // Debug.Log("rem.dist:" +_ma.remainingDistance);
 
         // Switch between idle and walk
-        if (shouldMove)
+        if (_attacking)
+        {
+            _anim.Play("attack");
+        }
+        else if (shouldMove)
             _anim.Play("walk");
         else
+        {
             _anim.Play("idle");
+            _onWay = false;
+        }
 
         // Pull agent towards character
         if (worldDeltaPosition.magnitude > _ma.radius)
@@ -64,5 +77,19 @@ public class ZombieManager : MonoBehaviour
         Vector3 position = _anim.rootPosition;
         position.y = _ma.nextPosition.y;
         transform.position = position;
+    }
+
+    public void SetDestination(Vector3 position)
+    {
+        _ma.SetDestination(position);
+        _onWay = true;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        _attacking = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        _attacking = false;
     }
 }
