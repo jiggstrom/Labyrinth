@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemPickup : Interactable {
+    public Loot loot;
 
     public override void Interact()
     {
@@ -15,7 +16,8 @@ public class ItemPickup : Interactable {
 
     private void Pickup()
     {
-        Debug.Log("Picked up item");
+    
+        GameManager.instance.LootFound(loot, this);
         Destroy(gameObject);
     }
 }

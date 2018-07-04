@@ -75,7 +75,21 @@ public class GameManager : MonoBehaviour
             {
                 screen.Text.text = "Du hittade " + loot.name;
                 screen.Image.sprite = loot.InventoryImage;
-                return Inventory.instance.AddLoot(loot);
+                if (loot.LootType == LootType.Asset)
+                    return Inventory.instance.AddLoot(loot);
+                else if (loot.LootType == LootType.Food)
+                {
+                    var vitals = Player.GetComponent<PlayerVitals>();
+                    vitals.GetEnergy(loot.Amount);
+                    return true;
+                }
+                else if (loot.LootType == LootType.Energy)
+                {
+                    var vitals = Player.GetComponent<PlayerVitals>();
+                    vitals.GetEnergy(loot.Amount);
+                    return true;
+                }
+
             }
             else
             {

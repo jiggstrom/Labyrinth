@@ -37,6 +37,12 @@ public class PlayerVitals : MonoBehaviour {
             Die();
         }
 
+        if(energySlider.value > (maxEnergy *.90) && healthSlider.value < maxHealth)
+        {
+            healthSlider.value += Time.deltaTime * healthFallRate;
+        }
+
+
 	}
     private void Die()
     {
@@ -44,9 +50,24 @@ public class PlayerVitals : MonoBehaviour {
         if (gm != null) gm.PlayerDeath();
     }
 
+    public void TakeDamage(int DamageAmount)
+    {
+        healthSlider.value -= DamageAmount;
+    }
+
+    public void GetEnergy(int Energy)
+    {
+        energySlider.value += Energy;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        healthSlider.value -= 10;
-        Debug.Log("onTriggerEnter");
+        var enemy = other.gameObject.GetComponent<Enemy>();
+
+        if (enemy != null)
+        {
+            TakeDamage(enemy.Damage);
+            Debug.Log("Attacked by " + enemy.Name);
+        }
     }
 }

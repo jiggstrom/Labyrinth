@@ -232,4 +232,4 @@ MonoBehaviour:
   radius: 3
   interactionTransform: {fileID: 477684}
   Lid: {fileID: 170426}
-  loot: {fileID: 0}
+  loot: {fileID: 11400000, guid: 9ddfad221322966478f500379ee489b1, type: 2}
