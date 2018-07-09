@@ -115,7 +115,8 @@ public class GameManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            var playcam = Player.GetComponentInChildren<Camera>();
+            Canvas.FadeOut.gameObject.SetActive(true);
+            Canvas.FadeOut.FadeToBlack();
             Debug.Log("Player death");
             playerDead = true;
         }
