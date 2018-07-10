@@ -18,7 +18,7 @@ public class KeyManager : MonoBehaviour {
 
 
         //If we press right mouse
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Interact"))
         {
             if (GameManager.instance.Canvas.UIActive == false)
             {

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Map"))
         {
             Canvas.ToggleMinimap();
         }
@@ -109,14 +110,16 @@ public class GameManager : MonoBehaviour
             currentInteractable = null;
         }
     }
-    public void PlayerDeath()
+    public IEnumerator PlayerDeath()
     {
         if (!playerDead)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            Canvas.FadeOut.gameObject.SetActive(true);
-            Canvas.FadeOut.FadeToBlack();
+            var fade = GetComponent<Fade>();
+            var fadeTime = fade.FadeToBlack();
+            yield return new WaitForSeconds(fadeTime);
+            SceneManager.LoadScene("Meny");
             Debug.Log("Player death");
             playerDead = true;
         }

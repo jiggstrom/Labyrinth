@@ -47,7 +47,7 @@ public class PlayerVitals : MonoBehaviour {
     private void Die()
     {
         var gm = FindObjectOfType<GameManager>();
-        if (gm != null) gm.PlayerDeath();
+        if (gm != null) StartCoroutine(gm.PlayerDeath());
     }
 
     public void TakeDamage(int DamageAmount)
