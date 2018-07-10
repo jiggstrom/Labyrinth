@@ -110,16 +110,14 @@ public class GameManager : MonoBehaviour
             currentInteractable = null;
         }
     }
-    public IEnumerator PlayerDeath()
+    public void PlayerDeath()
     {
         if (!playerDead)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            var fade = GetComponent<Fade>();
-            var fadeTime = fade.FadeToBlack();
-            yield return new WaitForSeconds(fadeTime);
-            SceneManager.LoadScene("Meny");
+            
+            LevelManager.instance.FadeToLevel("Meny");
             Debug.Log("Player death");
             playerDead = true;
         }

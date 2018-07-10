@@ -11,7 +11,6 @@ public class CanvasManager : MonoBehaviour {
     public GameObject Minimap;
     public GameObject Crosshair;
     public GameObject LootScreen;
-    public Fade FadeOut;
     public bool UIActive = false;
 
     internal void CloseLootscreen()

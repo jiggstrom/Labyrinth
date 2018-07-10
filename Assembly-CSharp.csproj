@@ -61,11 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Enemy.cs" />
-    <Compile Include="Assets\Fade.cs" />
-    <Compile Include="Assets\MenuManager.cs" />
+    <Compile Include="Assets\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\ChestInteractable.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\InteractableBase.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
@@ -73,9 +72,11 @@
     <Compile Include="Assets\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\ItemPickup.cs" />
     <Compile Include="Assets\Scripts\KeyManager.cs" />
+    <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Loot.cs" />
     <Compile Include="Assets\Scripts\LootScreen.cs" />
     <Compile Include="Assets\Scripts\LootType.cs" />
+    <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\MiniMapScript.cs" />
     <Compile Include="Assets\Scripts\PlayerVitals.cs" />
     <Compile Include="Assets\Scripts\ZombieManager.cs" />
@@ -160,12 +161,14 @@
     <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - Outlines\PrefabPicker\WeightedPrefabPicker.cs" />
     <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules\Module.cs" />
     <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Threading\Threading.cs" />
+    <Compile Include="Assets\ThirdParty\LevelDesignSet1_WoodenWalls\Scripts\WallSelector.cs" />
     <Compile Include="Assets\ThirdParty\torch\scripts\Torchelight.cs" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\ThirdParty\LevelDesignSet1_WoodenWalls\ReadMe.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\ThirdParty\torch\readme.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />

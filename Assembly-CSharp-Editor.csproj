@@ -93,6 +93,7 @@
     <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - Outlines\PrefabPicker\Editor\WeightedPrefabDrawer.cs" />
     <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules\Editor\ModuleEditor.cs" />
     <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules\Editor\ModuleMenuItems.cs" />
+    <Compile Include="Assets\ThirdParty\LevelDesignSet1_WoodenWalls\Editor\WallSelectorEditor.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>E:/Repos/Labyrinth/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
