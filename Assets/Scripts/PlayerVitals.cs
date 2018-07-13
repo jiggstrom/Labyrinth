@@ -13,6 +13,8 @@ public class PlayerVitals : MonoBehaviour {
     public int maxEnergy;
     public int energyFallRate;
 
+    public Text goldAmountText;
+
     // Use this for initialization
 	void Start () {
         healthSlider.maxValue = maxHealth;
@@ -25,6 +27,7 @@ public class PlayerVitals : MonoBehaviour {
 	void Update () {
 		if(energySlider.value <= 0)
         {
+            energySlider.value = 0;
             healthSlider.value -= Time.deltaTime * healthFallRate;
         }
         else
@@ -34,15 +37,14 @@ public class PlayerVitals : MonoBehaviour {
 
         if(healthSlider.value <= 0)
         {
+            healthSlider.value = 0;
             Die();
         }
 
         if(energySlider.value > (maxEnergy *.90) && healthSlider.value < maxHealth)
         {
-            healthSlider.value += Time.deltaTime * healthFallRate;
+            healthSlider.value = Mathf.Clamp(healthSlider.value + Time.deltaTime * healthFallRate,0,maxHealth);
         }
-
-
 	}
     private void Die()
     {
@@ -57,7 +59,23 @@ public class PlayerVitals : MonoBehaviour {
 
     public void GetEnergy(int Energy)
     {
-        energySlider.value += Energy;
+        energySlider.value = Mathf.Clamp(energySlider.value + Energy, 0, maxEnergy);
+    }
+
+    public void GetHealth(int Health)
+    {
+        healthSlider.value = Mathf.Clamp(healthSlider.value + Health,0,maxHealth);
+    }
+
+    public void GetGold(int Amount)
+    {
+        var tmpRes = Amount;
+        if (int.TryParse(goldAmountText.text, out tmpRes))
+        {
+            tmpRes += Amount;
+        }
+        goldAmountText.text = tmpRes.ToString();
+            
     }
 
     private void OnTriggerEnter(Collider other)

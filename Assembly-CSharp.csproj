@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DoorInteractable.cs" />
     <Compile Include="Assets\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\ChestInteractable.cs" />

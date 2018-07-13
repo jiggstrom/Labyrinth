@@ -1,6 +1,9 @@
 ﻿public enum LootType
 {
     Energy,
-    Food,
+    Health,
+    Armor,
+    Clothing, 
+    Gold,
     Asset
 }
