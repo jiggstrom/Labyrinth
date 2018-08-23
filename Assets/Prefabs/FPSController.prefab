@@ -316,12 +316,12 @@ MonoBehaviour:
   m_JumpSpeed: 10
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
-  m_MouseLook:
+  MouseLook:
     XSensitivity: 2
     YSensitivity: 2
     clampVerticalRotation: 1
-    MinimumX: -70
-    MaximumX: 70
+    MinimumX: -90
+    MaximumX: 90
     smooth: 0
     smoothTime: 5
     lockCursor: 1
@@ -873,6 +873,7 @@ MonoBehaviour:
   energySlider: {fileID: 0}
   maxEnergy: 100
   energyFallRate: 2
+  goldAmountText: {fileID: 0}
 --- !u!135 &135553220709265518
 SphereCollider:
   m_ObjectHideFlags: 1

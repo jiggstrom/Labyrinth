@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour {
+public class LevelLoadManager : MonoBehaviour {
 
     public Animator animator;
     private string levelToLoad;
 
     #region "Singelton"
-    public static LevelManager instance;
+    public static LevelLoadManager instance;
     public void Awake()
     {
         if (instance != null)

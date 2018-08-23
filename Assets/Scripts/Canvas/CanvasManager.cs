@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 [Serializable]
 public class CanvasManager : MonoBehaviour {
@@ -12,12 +13,9 @@ public class CanvasManager : MonoBehaviour {
     public GameObject Crosshair;
     public GameObject LootScreen;
     public bool UIActive = false;
+    public FirstPersonController fpc;
+    private bool SetCursorLock = false;
 
-    internal void CloseLootscreen()
-    {
-        LootScreen.SetActive(false);
-        UIActive = false;
-    }
     internal void ToggleMinimap()
     {
         if (Minimap.activeInHierarchy)
@@ -30,21 +28,32 @@ public class CanvasManager : MonoBehaviour {
         }
     }
 
+    public void Update()
+    {
+        if (SetCursorLock)
+        {
+            SetCursorLock = false;
+            fpc.MouseLook.SetCursorLock(!UIActive);
+        }
+    }
+
     internal void ToggleInventory()
     {   
         if (Inventory.activeInHierarchy)
         {
             Inventory.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
             UIActive = false;
+            SetCursorLock = true; //Update on next frame
         }
         else
         {
             Inventory.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.None;
+            //Cursor.visible = true;
             UIActive = true;
+            SetCursorLock = true; //Update on next frame
         }
     }
 
@@ -52,5 +61,14 @@ public class CanvasManager : MonoBehaviour {
     {
         LootScreen.SetActive(true);
         UIActive = true;
+        SetCursorLock = true; //Update on next frame
+
+    }
+
+    internal void CloseLootscreen()
+    {
+        LootScreen.SetActive(false);
+        UIActive = false;
+        SetCursorLock = true; //Update on next frame
     }
 }

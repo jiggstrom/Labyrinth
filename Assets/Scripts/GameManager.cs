@@ -49,15 +49,16 @@ public class GameManager : MonoBehaviour
         {
             Canvas.ToggleInventory();
         }
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonUp("Cancel"))
         {
             if (Canvas.LootScreen.activeInHierarchy)
             {
                 Canvas.CloseLootscreen();                
                 LootTaken();
+                //fpc.MouseLookEnabled = true;
             }
         }
-        fpc.MouseLookEnabled = !Canvas.UIActive;
+        //fpc.MouseLookEnabled = !Canvas.UIActive;
     }
 
     internal void RemoveInventoryItem(Loot loot)
@@ -118,6 +119,25 @@ public class GameManager : MonoBehaviour
             currentInteractable = null;
         }
     }
+
+    public void ShowMessage(string text, Sprite image)
+    {
+        Canvas.ShowLootScreen();
+        var screen = Canvas.LootScreen.GetComponent<LootScreen>();
+        if (screen != null)
+        {
+            screen.Text.text = text;
+            if (image != null)
+            {
+                screen.Image.sprite = image;
+            }
+            else
+            {
+                screen.Image.sprite = null;
+            }
+        }
+    }
+
     public void PlayerDeath()
     {
         if (!playerDead)
@@ -125,7 +145,7 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             
-            LevelManager.instance.FadeToLevel("Meny");
+            LevelLoadManager.instance.FadeToLevel("Meny");
             Debug.Log("Player death");
             playerDead = true;
         }

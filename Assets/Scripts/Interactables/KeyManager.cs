@@ -36,6 +36,10 @@ public class KeyManager : MonoBehaviour {
                     }
                 }
             }
+            else
+            {
+                //GameManager.instance.
+            }
         }
     }
 }

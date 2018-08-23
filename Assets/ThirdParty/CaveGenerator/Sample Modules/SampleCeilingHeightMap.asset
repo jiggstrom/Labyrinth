@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: SampleCeilingHeightMap
   m_EditorClassIdentifier: 
   properties:
-    minHeight: 3
-    maxHeight: 6
+    minHeight: 6
+    maxHeight: 9
     smoothness: 10
     numLayers: 4
     contributionMult: 0.5
     compressionMult: 2
-  seed: -2024271207
+  seed: -856804845

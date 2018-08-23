@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour {
 
     public void StartNewGame()
     {
-        LevelManager.instance.FadeToLevel("Level1");
+        LevelLoadManager.instance.FadeToLevel("Level1");
     }
 
     public void Quit()

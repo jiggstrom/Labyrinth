@@ -13,6 +13,12 @@ public class ZombieManager : MonoBehaviour
     private bool _onWay;
     private bool _attacking = false;
 
+    public delegate void OnArrived();
+    public OnArrived onArrived;
+
+    public delegate void OnKilled();
+    public OnKilled onKilled;
+
     void Start()
     {
         _ma = this.GetComponent<NavMeshAgent>();
@@ -63,6 +69,11 @@ public class ZombieManager : MonoBehaviour
         else
         {
             _anim.Play("idle");
+            if (!_onWay)
+            {
+                if (onArrived != null) onArrived.Invoke();
+            }
+
             _onWay = false;
         }
 

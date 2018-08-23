@@ -8,7 +8,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 596567319dec23f4090f2ee13eb6a862, type: 3}
-  m_Name: SampleFloorHeightMap
+  m_Script: {fileID: 11500000, guid: 97e712a8063bc2540bfb92693e06ffc4, type: 3}
+  m_Name: HeightMap
   m_EditorClassIdentifier: 
-  height: 0
+  properties:
+    minHeight: 0
+    maxHeight: 3
+    smoothness: 10
+    numLayers: 1
+    contributionMult: 0.5
+    compressionMult: 2
+  seed: -856804845

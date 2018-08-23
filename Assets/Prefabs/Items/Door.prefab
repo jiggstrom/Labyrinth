@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4004972351122634}
   - component: {fileID: 33119505180038958}
   - component: {fileID: 23611436007878338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left_Beam_Base_Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,8 +40,7 @@ GameObject:
   - component: {fileID: 23174599456921888}
   - component: {fileID: 65703076881958674}
   - component: {fileID: 95440493971498544}
-  - component: {fileID: 114154078766925226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +57,7 @@ GameObject:
   - component: {fileID: 4202290500685556}
   - component: {fileID: 33839564100567500}
   - component: {fileID: 23219448818519948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wooden_Boards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4115011401251892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4878583946906668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beams (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +105,7 @@ GameObject:
   - component: {fileID: 33348738667080716}
   - component: {fileID: 23490304371854636}
   - component: {fileID: 64638923287525222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +122,7 @@ GameObject:
   - component: {fileID: 4766755937216466}
   - component: {fileID: 33011705666195512}
   - component: {fileID: 23497829383963312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Metal_Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +139,7 @@ GameObject:
   - component: {fileID: 4269323367116690}
   - component: {fileID: 33434298191603024}
   - component: {fileID: 23351058386708224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Supports
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4817085232977988}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right_Beam_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +171,7 @@ GameObject:
   - component: {fileID: 4127795832663722}
   - component: {fileID: 33238977161681886}
   - component: {fileID: 23966498424032144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right_Beam_Base_Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4503466577415620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right_Beam_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4717949337308286}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left_Beam_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +218,7 @@ GameObject:
   - component: {fileID: 4828312926227260}
   - component: {fileID: 33550546497804480}
   - component: {fileID: 23770695556506858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left_Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +235,7 @@ GameObject:
   - component: {fileID: 4745942598173768}
   - component: {fileID: 33542176106913488}
   - component: {fileID: 23571409723904268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right_Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +253,7 @@ GameObject:
   - component: {fileID: 33957997332428140}
   - component: {fileID: 23285332887105234}
   - component: {fileID: 65148657099716624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +270,7 @@ GameObject:
   - component: {fileID: 4325919989392496}
   - component: {fileID: 33392756466822946}
   - component: {fileID: 23095954271770270}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left_Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4452730988415040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +302,7 @@ GameObject:
   - component: {fileID: 4910356911871846}
   - component: {fileID: 33952021498401694}
   - component: {fileID: 23304160033884586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right_Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +319,7 @@ GameObject:
   - component: {fileID: 4966108554297450}
   - component: {fileID: 33717492001967644}
   - component: {fileID: 23526789273542446}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wooden_Boards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4725849000102230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left_Beam_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +351,7 @@ GameObject:
   - component: {fileID: 4963237831601588}
   - component: {fileID: 33447096222383816}
   - component: {fileID: 23837642867144656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left_Beam_Base_Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +368,7 @@ GameObject:
   - component: {fileID: 4201950528627012}
   - component: {fileID: 33736607136565456}
   - component: {fileID: 23528378777519200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Supports
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +383,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4187756298443522}
-  m_Layer: 0
+  - component: {fileID: 65135481446393388}
+  - component: {fileID: 114572821786978920}
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +403,7 @@ GameObject:
   - component: {fileID: 33983384823150352}
   - component: {fileID: 23235775853415200}
   - component: {fileID: 64202851794898958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_Frame (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4517565627447834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beams
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +436,7 @@ GameObject:
   - component: {fileID: 33210903775680096}
   - component: {fileID: 23546522775470424}
   - component: {fileID: 65561544978819468}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +453,7 @@ GameObject:
   - component: {fileID: 4190213977534302}
   - component: {fileID: 33314075041277778}
   - component: {fileID: 23880821304993826}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right_Beam_Base_Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1623,6 +1624,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300042, guid: 06de8918a3c1a444c8c374529c8e30f5, type: 3}
+--- !u!65 &65135481446393388
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732662101678452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3610203, y: 2.459971, z: 0.28481424}
+  m_Center: {x: 0.07615656, y: -0.10569978, z: -0.013593575}
 --- !u!65 &65148657099716624
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1677,16 +1690,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114154078766925226
+--- !u!114 &114572821786978920
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1068923884128688}
+  m_GameObject: {fileID: 1732662101678452}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f3a578de0d23b541b03b7e7720f7965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  interactionTransform: {fileID: 4742583054399126}
+  interactionTransform: {fileID: 4187756298443522}
+  Door: {fileID: 1068923884128688}
+  ItemsNeeded:
+  - {fileID: 11400000, guid: f59156894b2401c41819800d2811a6c1, type: 2}
+  - {fileID: 11400000, guid: 9ddfad221322966478f500379ee489b1, type: 2}
+  GoldNeeded: 200

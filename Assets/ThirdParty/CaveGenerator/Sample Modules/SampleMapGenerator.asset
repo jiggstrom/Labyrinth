@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: SampleMapGenerator
   m_EditorClassIdentifier: 
   properties:
-    length: 50
-    width: 50
+    length: 150
+    width: 150
     initialMapDensity: 0.5
-    expandTunnels: 0
+    expandTunnels: 1
     borderSize: 0
     minWallSize: 50
     minFloorSize: 50
-  seed: 2122650796
+  seed: -856804845

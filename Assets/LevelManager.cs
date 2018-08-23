@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class LootScreen : MonoBehaviour {
+public class LevelManager : MonoBehaviour {
 
-    public Text Text;
-    public Image Image;
+    [SerializeField]
+    private LevelData _levelData;
+    private List<ZombieManager> zombies;
 
 	// Use this for initialization
 	void Start () {
