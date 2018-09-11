@@ -12,6 +12,7 @@ public class CanvasManager : MonoBehaviour {
     public GameObject Minimap;
     public GameObject Crosshair;
     public GameObject LootScreen;
+    public GameObject HintMsg;
     public bool UIActive = false;
     public FirstPersonController fpc;
     private bool SetCursorLock = false;
@@ -70,5 +71,12 @@ public class CanvasManager : MonoBehaviour {
         LootScreen.SetActive(false);
         UIActive = false;
         SetCursorLock = true; //Update on next frame
+    }
+
+    internal void ShowHint(string text)
+    {
+        var textObj = HintMsg.GetComponentInChildren<TMPro.TextMeshPro>();
+        textObj.text = text;
+        HintMsg.SetActive(true);
     }
 }

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71279b78e47d7949b255fdb7ca65c92, type: 3}
   m_Name: Food
   m_EditorClassIdentifier: 
-  LootType: 1
+  LootType: 0
   name: Food
   Description: Some meat
   InventoryImage: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
-  Amount: 25
+  Amount: 2000

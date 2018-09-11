@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71279b78e47d7949b255fdb7ca65c92, type: 3}
   m_Name: Apples
   m_EditorClassIdentifier: 
-  LootType: 1
+  LootType: 0
   name: Apples
   Description: Two apples
   InventoryImage: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
-  Amount: 2
+  Amount: 500

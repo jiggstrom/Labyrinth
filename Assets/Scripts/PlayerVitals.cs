@@ -20,7 +20,7 @@ public class PlayerVitals : MonoBehaviour {
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
         energySlider.maxValue = maxEnergy;
-        energySlider.value = maxEnergy;
+        energySlider.value = maxEnergy/2;
 	}
 	
 	// Update is called once per frame

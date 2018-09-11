@@ -51,14 +51,18 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetButtonUp("Cancel"))
         {
-            if (Canvas.LootScreen.activeInHierarchy)
-            {
-                Canvas.CloseLootscreen();                
-                LootTaken();
-                //fpc.MouseLookEnabled = true;
-            }
+            CloseLootScreen();
         }
         //fpc.MouseLookEnabled = !Canvas.UIActive;
+    }
+
+    public void CloseLootScreen() {
+        if (Canvas.LootScreen.activeInHierarchy)
+        {
+            Canvas.CloseLootscreen();
+            LootTaken();
+            //fpc.MouseLookEnabled = true;
+        }
     }
 
     internal void RemoveInventoryItem(Loot loot)
@@ -136,6 +140,11 @@ public class GameManager : MonoBehaviour
                 screen.Image.sprite = null;
             }
         }
+    }
+
+    public void ShowHint(string text)
+    {
+        Canvas.ShowHint(text);
     }
 
     public void PlayerDeath()
