@@ -250,7 +250,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.9166667
-    functionName: get_type
+    functionName: HideMessage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

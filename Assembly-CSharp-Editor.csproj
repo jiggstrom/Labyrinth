@@ -61,38 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\_Universal\Custom Attributes\Editor\ReadOnlyDrawer.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\CaveGeneration\Generators\Base\Editor\BaseCaveGenEditor.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\CaveGeneration\Generators\Facade UI\Editor\CaveGeneratorUIEditor.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\CaveGeneration\Generators\RockOutline\Editor\OutlineCaveGenEditor.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\CaveGeneration\Generators\ThreeTier\Editor\ThreeTierCaveGenEditor.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\EditorScripting\Editor\DragHandler.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\EditorScripting\Editor\EditorHelpers.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\EditorScripting\Editor\HandleHelpers.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\EditorScripting\Editor\IOHelpers.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\EditorScripting\Editor\ScriptableObjectHelpers.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\HeightMaps\Editor\LayeredNoiseParametersDrawer.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Global\NodeEditorSettings.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\NodeGroup\MapGenWindow.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\NodeGroup\Node.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\NodeGroup\NodeGroup.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Serialization\NodeEditorSave.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Serialization\SavedNode.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Utility\BoundaryDrawer.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Utility\NodeSelection.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Utility\RectResizer.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Utility\WindowHelpers.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Utility\Zoom.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Windows\MapEditorWindow.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\Map Gen Window\Windows\PreviewWindow.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\MapGenModuleEditor.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\MapGenModuleMenuItems.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\MapPropertiesDrawer.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\Editor\PNGImporter.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - MapGeneration\MapGenerators\Entrance Carver\BoundaryPoint\Editor\BoundaryPointDrawer.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules - Outlines\PrefabPicker\Editor\WeightedPrefabDrawer.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules\Editor\ModuleEditor.cs" />
-    <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Modules\Editor\ModuleMenuItems.cs" />
     <Compile Include="Assets\ThirdParty\LevelDesignSet1_WoodenWalls\Editor\WallSelectorEditor.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Repos/Labyrinth/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

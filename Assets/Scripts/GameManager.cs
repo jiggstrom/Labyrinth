@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("Multiple instances of gamemanager found!");
+            Destroy(gameObject);
             return;
         }
         instance = this;
@@ -43,7 +45,8 @@ public class GameManager : MonoBehaviour
 	void Update () {
         if (Input.GetButtonDown("Map"))
         {
-            Canvas.ToggleMinimap();
+            if (Inventory.instance.items.Any(x => x.name == "Map"))
+                Canvas.ToggleMinimap();
         }
         if (Input.GetButtonDown("Inventory"))
         {

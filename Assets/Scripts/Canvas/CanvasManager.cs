@@ -75,7 +75,7 @@ public class CanvasManager : MonoBehaviour {
 
     internal void ShowHint(string text)
     {
-        var textObj = HintMsg.GetComponentInChildren<TMPro.TextMeshPro>();
+        var textObj = HintMsg.GetComponentInChildren<TMPro.TMP_Text>();
         textObj.text = text;
         HintMsg.SetActive(true);
     }

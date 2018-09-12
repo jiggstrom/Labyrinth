@@ -81,7 +81,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void InternalLockUpdate()
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.KeypadMinus))
             {
                 m_cursorIsLocked = false;
             }
