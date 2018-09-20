@@ -27,6 +27,15 @@ public class GameManager : MonoBehaviour
 
     private Interactable currentInteractable;
 
+    public delegate void OnBeginLookAt(Interactable obj);
+    public OnBeginLookAt onBeginLookAt;
+
+    public delegate void OnStopLookAt(Interactable obj);
+    public OnStopLookAt onStopLookAt;
+
+    public delegate void OnBeginInteract(Interactable obj);
+    public OnBeginInteract onBeginInteract;
+
     private int energy;
     private int hunger;
     private int temperatureOffset;
@@ -36,9 +45,9 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start () {
         fpc = Player.GetComponent<FirstPersonController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Canvas.UIActive = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Canvas.UIActive = false;
     }
 	
 	// Update is called once per frame
@@ -57,6 +66,18 @@ public class GameManager : MonoBehaviour
             CloseLootScreen();
         }
         //fpc.MouseLookEnabled = !Canvas.UIActive;
+    }
+
+
+
+    internal void DisablePlayer(bool value)
+    {
+        fpc.enabled = !value;
+        if (value == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void CloseLootScreen() {
@@ -149,7 +170,10 @@ public class GameManager : MonoBehaviour
     {
         Canvas.ShowHint(text);
     }
-
+    public void HideHint()
+    {
+        Canvas.HideHint();
+    }
     public void PlayerDeath()
     {
         if (!playerDead)
@@ -157,9 +181,22 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             
-            LevelLoadManager.instance.FadeToLevel("Meny");
+            LevelLoadManager.instance.Greet("Tyvärr klarade du inte att överleva ensam i den bortglömda gruvan. Försök igen.","Meny");
             Debug.Log("Player death");
             playerDead = true;
         }
+    }
+
+    public void LookAt(Interactable i)
+    {
+        if (onBeginLookAt != null) onBeginLookAt.Invoke(i);
+    }
+    public void StopLookAt(Interactable i)
+    {
+        if (onStopLookAt != null) onStopLookAt.Invoke(i);
+    }
+    public void InteractWith(Interactable i)
+    {
+        if (onBeginInteract != null) onBeginInteract.Invoke(i);
     }
 }

@@ -8,6 +8,8 @@ public class ItemPickup : Interactable {
     public int Amount = 1;
     public override void Interact()
     {
+        if (!IsCloseEnough()) return;
+
         base.Interact();
 
         Pickup();

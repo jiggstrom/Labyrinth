@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,8 @@ public class ZombieManager : MonoBehaviour
     public delegate void OnKilled();
     public OnKilled onKilled;
 
+    private AudioSource _audio;
+
     void Start()
     {
         _ma = this.GetComponent<NavMeshAgent>();
@@ -28,6 +31,7 @@ public class ZombieManager : MonoBehaviour
         _onWay = false;
         _attacking = false;
         _ma.updatePosition = false;
+        _audio = this.GetComponent<AudioSource>();
 
     }
 
@@ -63,12 +67,22 @@ public class ZombieManager : MonoBehaviour
         if (_attacking)
         {
             _anim.Play("attack");
+            _audio.Play();
         }
         else if (shouldMove)
+        {
             _anim.Play("walk");
+            if (_audio.isPlaying == false)
+                if(Random.value > 0.99)
+                    _audio.Play();
+        }
         else
         {
             _anim.Play("idle");
+            if (_audio.isPlaying == false)
+                if (Random.value > 0.99)
+                    _audio.Play();
+
             if (!_onWay)
             {
                 if (onArrived != null) onArrived.Invoke();

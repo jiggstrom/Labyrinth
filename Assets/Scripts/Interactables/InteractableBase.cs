@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /*	
 	This component is for all objects that the player can
@@ -13,51 +14,67 @@ public class Interactable : MonoBehaviour
     public Transform interactionTransform;  // The transform from where we interact in case you want to offset it
 
     bool isFocus = false;   // Is this interactable currently being focused?
-    Transform player;       // Reference to the player transform
 
     bool hasInteracted = false; // Have we already interacted with the object?
 
     public virtual void Interact()
     {
-        // This method is meant to be overwritten
-        Debug.Log("Interacting with " + transform.name);
+        GameManager.instance.InteractWith(this);       
+    }
+
+    void Start()
+    {
     }
 
     void Update()
     {
         // If we are currently being focused
         // and we haven't already interacted with the object
-        if (isFocus && !hasInteracted)
-        {
-            // If we are close enough
-            float distance = Vector3.Distance(player.position, interactionTransform.position);
-            if (distance <= radius)
-            {
-                // Interact with the object
-                Interact();
-                hasInteracted = true;
-            }
-            else
-            {
-                OnDefocused();
-            }
-        }
+        //if (isFocus && !hasInteracted)
+        //{
+        //    // If we are close enough
+        //    float distance = Vector3.Distance(player.position, interactionTransform.position);
+        //    if (distance <= radius)
+        //    {
+        //        // Interact with the object
+        //        Interact();
+        //        hasInteracted = true;
+                
+        //    }
+        //    else
+        //    {
+        //        //OnDefocused();
+        //    }
+        //}
+    }
+
+    internal bool IsCloseEnough()
+    {
+        float distance = Vector3.Distance(GameManager.instance.Player.transform.position, interactionTransform.position);
+        return (distance <= radius);
     }
 
     // Called when the object starts being focused
-    public void OnFocused(Transform playerTransform)
+    public Interactable OnFocused()
     {
-        isFocus = true;
-        player = playerTransform;
-        hasInteracted = false;
+        if (IsCloseEnough())
+        {
+            isFocus = true;
+            hasInteracted = false;
+            GameManager.instance.LookAt(this);
+            return this;
+        }
+
+        return null;
+
     }
 
     // Called when the object is no longer focused
     public void OnDefocused()
     {
         isFocus = false;
-        player = null;
         hasInteracted = false;
+        GameManager.instance.StopLookAt(this);
     }
 
     // Draw our radius in the editor

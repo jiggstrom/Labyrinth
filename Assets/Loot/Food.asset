@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LootType: 0
   name: Food
-  Description: Some meat
+  Description: "lite k\xF6tt"
   InventoryImage: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
   Amount: 2000

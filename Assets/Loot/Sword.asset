@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LootType: 5
   name: Sword
-  Description: amadil's great sword
+  Description: "sv\xE4rd"
   InventoryImage: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
   Amount: 1

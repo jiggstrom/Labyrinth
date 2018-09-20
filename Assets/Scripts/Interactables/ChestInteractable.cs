@@ -10,6 +10,7 @@ public class ChestInteractable : Interactable
 
     public override void Interact()
     {
+        if (!IsCloseEnough()) return;
         base.Interact();
         Lid.GetComponent<Animator>().Play("Opening");
         var gm = FindObjectOfType<GameManager>();

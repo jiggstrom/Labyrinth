@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LootType: 1
   name: Potion
-  Description: Healing elixir
+  Description: helande dryck
   InventoryImage: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
   Amount: 50

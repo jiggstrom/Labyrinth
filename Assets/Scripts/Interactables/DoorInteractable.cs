@@ -1,20 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class DoorInteractable : Interactable {
     public GameObject Door;
     public Loot[] ItemsNeeded;
     public int GoldNeeded = 0;
     private bool isOpen = false;
+    public Sprite goldImage;
+    public delegate void OnOpened();
+    public OnOpened onOpened;
+
     public override void Interact()
     {
+        if (!IsCloseEnough()) return;
+
         base.Interact();
 
         if(isOpen)
         {
-            base.StopInteracting();
+            //base.StopInteracting();
+            isOpen = false;
             Door.GetComponent<Animator>().Play("Close");
+            Door.GetComponent<AudioSource>().Play();
         }
         else
         {
@@ -29,7 +38,7 @@ public class DoorInteractable : Interactable {
                         if (!inventory.items.Contains(item))
                         {
                             Debug.Log("Missing: " + item.Description);
-                            gm.ShowMessage("You need " + item.Description + " before you can open this door.", item.InventoryImage);
+                            gm.ShowMessage("Du behöver " + item.Description + " för att öppna dörren.", item.InventoryImage);
                             return;
                         }
                     }
@@ -55,17 +64,23 @@ public class DoorInteractable : Interactable {
                     else
                     {
                         Debug.Log("Gold needed " + GoldNeeded.ToString() + ", gold availible: " + amount.ToString());
+                        gm.ShowMessage("Det kostar " + GoldNeeded.ToString() + " guld att öppna dörren men du har bara " + amount.ToString(),goldImage );
                         return;
                     }
                 }
             }
 
+            isOpen = true;
             Door.GetComponent<Animator>().Play("Open");
-            
+            Door.GetComponent<AudioSource>().Play();
+            if (onOpened != null) onOpened.Invoke();
         }
     }
 
     public override void StopInteracting()
     {
+        base.StopInteracting();
+        Door.GetComponent<Animator>().Play("Close");
+        Door.GetComponent<AudioSource>().Play();        
     }
 }

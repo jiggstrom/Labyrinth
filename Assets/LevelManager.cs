@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour {
     private List<ZombieManager> zombies;
     private bool InventoryChecked;
     private bool MapChecked;
+    private bool HasInteracted;
+    public DoorInteractable levelExitDoor;
 
     // Use this for initialization
     void Start () {
@@ -25,10 +27,30 @@ public class LevelManager : MonoBehaviour {
                 GameManager.instance.ShowHint("Tryck 'E' för att visa/dölja inventory.");
             }
         };
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        GameManager.instance.onBeginLookAt += x =>
+        {
+            if(!HasInteracted)
+                GameManager.instance.ShowHint("Tryck höger musknapp för att interagera med saker.");
+
+        };
+        GameManager.instance.onStopLookAt += x =>
+        {
+            if (!HasInteracted)
+                GameManager.instance.HideHint();
+        };
+
+        GameManager.instance.onBeginInteract += x => { HasInteracted = true; };
+
+        levelExitDoor.onOpened += () =>
+        {
+            var lm = LevelLoadManager.instance;
+            lm.Greet(
+                "Grattis, du har nu klarat introduktionen och är redo för en ritig utmaning! Välkommen till nästa nivå!", "Meny");
+        };
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (Input.GetButtonDown("Map"))
         {
             if (Inventory.instance.items.Any(x => x.name == "Map")) MapChecked = true;
