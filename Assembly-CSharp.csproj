@@ -65,6 +65,7 @@
     <Compile Include="Assets\LevelData.cs" />
     <Compile Include="Assets\LevelManager.cs" />
     <Compile Include="Assets\MessageFade.cs" />
+    <Compile Include="Assets\ObjectVanish.cs" />
     <Compile Include="Assets\Scripts\Canvas\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\Canvas\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Canvas\InventoryUI.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Assets\ThirdParty\CaveGenerator\Scripts\Threading\Threading.cs" />
     <Compile Include="Assets\ThirdParty\LevelDesignSet1_WoodenWalls\Scripts\WallSelector.cs" />
     <Compile Include="Assets\ThirdParty\torch\scripts\Torchelight.cs" />
+    <Compile Include="Assets\Western Props\Scripts\Destructible.cs" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

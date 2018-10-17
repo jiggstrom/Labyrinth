@@ -55,7 +55,7 @@ public class Interactable : MonoBehaviour
     }
 
     // Called when the object starts being focused
-    public Interactable OnFocused()
+    public virtual Interactable OnFocused()
     {
         if (IsCloseEnough())
         {
