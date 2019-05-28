@@ -69,6 +69,7 @@
     <Compile Include="Assets\LevelManager.cs" />
     <Compile Include="Assets\MessageFade.cs" />
     <Compile Include="Assets\ObjectVanish.cs" />
+    <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Canvas\CanvasManager.cs" />
     <Compile Include="Assets\Scripts\Canvas\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Canvas\InventoryUI.cs" />

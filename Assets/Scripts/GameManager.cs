@@ -39,12 +39,12 @@ public class GameManager : MonoBehaviour
     private int energy;
     private int hunger;
     private int temperatureOffset;
-    private FirstPersonController fpc;
+    private PlayerController fpc;
     private bool playerDead = false;
 
     // Use this for initialization
     void Start () {
-        fpc = Player.GetComponent<FirstPersonController>();
+        fpc = Player.GetComponent<PlayerController>();
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
         //Canvas.UIActive = false;
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     internal void DisablePlayer(bool value)
     {
-        fpc.enabled = !value;
+        fpc.EnableMovement = !value;
         if (value == true)
         {
             Cursor.lockState = CursorLockMode.None;

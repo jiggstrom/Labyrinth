@@ -16,7 +16,6 @@ public class CanvasManager : MonoBehaviour
     public GameObject LootScreen;
     public GameObject HintMsg;
     private bool _UIActive = false;
-    public FirstPersonController fpc;
     private bool SetCursorLock = false;
 
     internal void ToggleMinimap()

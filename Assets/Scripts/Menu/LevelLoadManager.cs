@@ -28,8 +28,8 @@ public class LevelLoadManager : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetMouseButtonDown(0))
-            DoLoad();
+        //if (Input.GetMouseButtonDown(0))
+        //    DoLoad();
     }
 
     public void FadeToLevel(string name)
