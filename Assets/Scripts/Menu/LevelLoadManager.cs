@@ -11,6 +11,7 @@ public class LevelLoadManager : MonoBehaviour {
     private string levelToLoad;
     public TMP_Text text;
     private float wait = 0f;
+    public Transform PlayerTransform;
 
     #region "Singelton"
     public static LevelLoadManager instance;
@@ -51,7 +52,22 @@ public class LevelLoadManager : MonoBehaviour {
     }
     public void DoLoad()
     {
-        SceneManager.LoadScene(levelToLoad);
+
+
+        if (levelToLoad.StartsWith("Level"))
+        {
+            if (FindObjectOfType<MenuManager>() != null)
+            {
+                SceneManager.LoadScene("Game", LoadSceneMode.Single);
+            }
+            SceneManager.LoadScene(levelToLoad, LoadSceneMode.Additive);
+        }
+        else
+        {
+            SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
+        }
+
+
     }
 
     public void Greet(string message, string levelName)

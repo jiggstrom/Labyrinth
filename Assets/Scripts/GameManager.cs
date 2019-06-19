@@ -87,6 +87,10 @@ public class GameManager : MonoBehaviour
             LootTaken();
             //fpc.MouseLookEnabled = true;
         }
+        else
+        {
+            LevelLoadManager.instance.Greet("Hej då, bättre lycka nästa gång!", "Meny");
+        }
     }
 
     internal void RemoveInventoryItem(Loot loot)

@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour {
             {
                 GameManager.instance.ShowHint("Tryck 'E' för att visa/dölja inventory.");
             }
+
         };
         GameManager.instance.onBeginLookAt += x =>
         {
@@ -47,6 +48,11 @@ public class LevelManager : MonoBehaviour {
             lm.Greet(
                 "Grattis, du har nu klarat introduktionen och är redo för en ritig utmaning! Välkommen till nästa nivå!", "Meny");
         };
+
+        var ps = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
+        var pl = GameObject.FindGameObjectWithTag("Player").transform;
+        pl.localPosition = ps.localPosition;
+
     }
 
     // Update is called once per frame
