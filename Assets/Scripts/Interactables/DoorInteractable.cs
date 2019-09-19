@@ -35,16 +35,18 @@ public class DoorInteractable : Interactable {
                 {
                     foreach (var item in ItemsNeeded)
                     {
-                        if (!inventory.items.Contains(item))
-                        {
-                            Debug.Log("Missing: " + item.Description);
-                            gm.ShowMessage("Du behöver " + item.Description + " för att öppna dörren.", item.InventoryImage);
-                            return;
-                        }
+                        //TODO:
+                        //if (!inventory.items.Contains(item))
+                        //{
+                        //    Debug.Log("Missing: " + item.Description);
+                        //    gm.ShowMessage("Du behöver " + item.Description + " för att öppna dörren.", item.InventoryImage);
+                        //    return;
+                        //}
                     }
                     foreach (var item in ItemsNeeded)
                     {
-                        if (!inventory.items.Contains(item)) inventory.items.Remove(item);
+                        //TODO:
+                        //if (!inventory.items.Contains(item)) inventory.items.Remove(item);
                     }
                 }
                 else

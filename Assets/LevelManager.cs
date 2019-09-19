@@ -16,18 +16,19 @@ public class LevelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Inventory.instance.onChanged += () =>
-        {
-            if (Inventory.instance.items.Any(x => x.name == "Map") && !MapChecked)
-            {
-                GameManager.instance.ShowHint("Tryck 'M' för att visa/dölja kartan.");
-            }
-            else if (!InventoryChecked)
-            {
-                GameManager.instance.ShowHint("Tryck 'E' för att visa/dölja inventory.");
-            }
+        //TODO:
+        //Inventory.instance.onChanged += () =>
+        //{
+        //    if (Inventory.instance.items.Any(x => x.name == "Map") && !MapChecked)
+        //    {
+        //        GameManager.instance.ShowHint("Tryck 'M' för att visa/dölja kartan.");
+        //    }
+        //    else if (!InventoryChecked)
+        //    {
+        //        GameManager.instance.ShowHint("Tryck 'E' för att visa/dölja inventory.");
+        //    }
 
-        };
+        //};
         GameManager.instance.onBeginLookAt += x =>
         {
             if(!HasInteracted)
@@ -59,11 +60,13 @@ public class LevelManager : MonoBehaviour {
     void Update () {
         if (Input.GetButtonDown("Map"))
         {
-            if (Inventory.instance.items.Any(x => x.name == "Map")) MapChecked = true;
+            // TODO:
+            //if (Inventory.instance.items.Any(x => x.name == "Map")) MapChecked = true;
         }
         if (Input.GetButtonDown("Inventory"))
         {
-            if (Inventory.instance.items.Count > 1) InventoryChecked = true;
+            //TODO:
+            //if (Inventory.instance.items.Count > 1) InventoryChecked = true;
         }
     }
 }
