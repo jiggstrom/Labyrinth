@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -176,6 +177,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -334,12 +336,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 33379836163143870, guid: af8120330304fd34ba12c8d244c9e0c6,
+    - target: {fileID: 33379835913550636, guid: af8120330304fd34ba12c8d244c9e0c6,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 33379835913550636, guid: af8120330304fd34ba12c8d244c9e0c6,
+    - target: {fileID: 33379836163143870, guid: af8120330304fd34ba12c8d244c9e0c6,
         type: 3}
       propertyPath: m_Mesh
       value: 
@@ -354,12 +356,12 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 114964535942354678, guid: af8120330304fd34ba12c8d244c9e0c6,
+    - target: {fileID: 114964534810212779, guid: af8120330304fd34ba12c8d244c9e0c6,
         type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114964535942354678, guid: af8120330304fd34ba12c8d244c9e0c6,
+    - target: {fileID: 114964534810212779, guid: af8120330304fd34ba12c8d244c9e0c6,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -374,22 +376,22 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114964536200467812, guid: af8120330304fd34ba12c8d244c9e0c6,
+    - target: {fileID: 114964535942354678, guid: af8120330304fd34ba12c8d244c9e0c6,
         type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114964536200467812, guid: af8120330304fd34ba12c8d244c9e0c6,
+    - target: {fileID: 114964535942354678, guid: af8120330304fd34ba12c8d244c9e0c6,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114964534810212779, guid: af8120330304fd34ba12c8d244c9e0c6,
+    - target: {fileID: 114964536200467812, guid: af8120330304fd34ba12c8d244c9e0c6,
         type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114964534810212779, guid: af8120330304fd34ba12c8d244c9e0c6,
+    - target: {fileID: 114964536200467812, guid: af8120330304fd34ba12c8d244c9e0c6,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1

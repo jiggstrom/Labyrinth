@@ -8,3 +8,9 @@ Temp/
 obj/
 
 Build/
+
+*.csproj
+
+*.sln
+
+Logs/

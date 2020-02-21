@@ -9,7 +9,7 @@ public class ToolActionController : MonoBehaviour {
     public float m_speed = 400.0f; // speed of rotating tool in hands
     public float m_targetAngle = 45.0f;// angle of rotating
     public float m_shiftY = -20.0f;
-    public Animator CharacterAnimator;
+    //public Animator CharacterAnimator;
 
     float m_startAngleX;
     private float animationTimeLeft;
@@ -35,18 +35,18 @@ public class ToolActionController : MonoBehaviour {
         if (!m_didHitStart)
             return;
 
-        if(animationTimeLeft > 0)
-        {
-            animationTimeLeft -= Time.deltaTime;
-            if (animationTimeLeft > 0) m_didHitStart = false;
-        }
-        else
-        {
-            CharacterAnimator.SetTrigger("MeleAttack");
-            animationTimeLeft = (1.08f / 2f);            
-        }
+        //if (animationTimeLeft > 0)
+        //{
+        //    animationTimeLeft -= Time.deltaTime;
+        //    if (animationTimeLeft > 0) m_didHitStart = false;
+        //}
+        //else
+        //{
+        //    CharacterAnimator.SetTrigger("MeleAttack");
+        //    animationTimeLeft = (1.08f / 2f);
+        //}
 
-        return;
+        //return;
 
 
         /*hit execution: 
