@@ -7,7 +7,7 @@ using UnityEngine;
 	to be used as a base class.
 */
 
-public class Interactable : MonoBehaviour
+public class Interactable : InteractableObject
 {
 
     public float radius = 3f;               // How close do we need to be to interact?
@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour
 
     bool hasInteracted = false; // Have we already interacted with the object?
 
-    public virtual void Interact()
+    public override void Interact()
     {
         GameManager.instance.InteractWith(this);       
     }
@@ -87,7 +87,7 @@ public class Interactable : MonoBehaviour
         Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
 
-    public virtual void StopInteracting()
+    public override void StopInteracting()
     {
         hasInteracted = true;
     }

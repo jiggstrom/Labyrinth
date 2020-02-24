@@ -26,34 +26,10 @@ public class ToolActionController : MonoBehaviour {
         m_didHitStart = true;// start hit
     }
 
-    public void Hit2()
-    {
-        m_didHitStart = true;// start hit
-    }
     void Update()
     {
         if (!m_didHitStart)
             return;
-
-        //if (animationTimeLeft > 0)
-        //{
-        //    animationTimeLeft -= Time.deltaTime;
-        //    if (animationTimeLeft > 0) m_didHitStart = false;
-        //}
-        //else
-        //{
-        //    CharacterAnimator.SetTrigger("MeleAttack");
-        //    animationTimeLeft = (1.08f / 2f);
-        //}
-
-        //return;
-
-
-        /*hit execution: 
-         * we get to target angle -> 
-         call Action of tool in hands ->
-         get back ->
-         hit execution finished*/
 
         // angle increments according to speed
         m_angle = Mathf.Clamp(m_angle + m_multiplier * m_speed * Time.deltaTime, 0.0f, m_targetAngle);
@@ -65,33 +41,6 @@ public class ToolActionController : MonoBehaviour {
 
             m_multiplier *= -1.0f;
         } else if (m_angle == 0.0f)
-        {
-            m_multiplier *= -1.0f;
-            m_didHitStart = false; // if we get there -> hit execution finished
-        }
-    }
-    void Update2()
-    {
-        if (!m_didHitStart)
-            return;
-
-        /*hit execution: 
-         * we get to target angle -> 
-         call Action of tool in hands ->
-         get back ->
-         hit execution finished*/
-
-        // angle increments according to speed
-        m_angle = Mathf.Clamp(m_angle + m_multiplier * m_speed * Time.deltaTime, 0.0f, m_targetAngle);
-        m_hands.localRotation = Quaternion.Euler(m_startAngleX + m_angle, m_shiftY, m_hands.localRotation.x);
-        if (m_angle == m_targetAngle)
-        {
-            if (m_tool) // if we have tool -> call that 'Action' function
-                m_tool.Action();
-
-            m_multiplier *= -1.0f;
-        }
-        else if (m_angle == 0.0f)
         {
             m_multiplier *= -1.0f;
             m_didHitStart = false; // if we get there -> hit execution finished

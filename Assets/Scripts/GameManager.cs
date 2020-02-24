@@ -25,15 +25,15 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public CanvasManager Canvas;
 
-    private Interactable currentInteractable;
+    private InteractableObject currentInteractable;
 
-    public delegate void OnBeginLookAt(Interactable obj);
+    public delegate void OnBeginLookAt(InteractableObject obj);
     public OnBeginLookAt onBeginLookAt;
 
-    public delegate void OnStopLookAt(Interactable obj);
+    public delegate void OnStopLookAt(InteractableObject obj);
     public OnStopLookAt onStopLookAt;
 
-    public delegate void OnBeginInteract(Interactable obj);
+    public delegate void OnBeginInteract(InteractableObject obj);
     public OnBeginInteract onBeginInteract;
     public Inventory inventory;
 
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     //    Inventory.instance.RemoveInventoryItem(loot);
     //}
 
-    internal bool LootFound(Loot loot, Interactable interactable)
+    internal bool LootFound(Loot loot, InteractableObject interactable)
     {
         currentInteractable = interactable;
         Canvas.ShowLootScreen();
@@ -193,15 +193,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LookAt(Interactable i)
+    public void LookAt(InteractableObject i)
     {
         if (onBeginLookAt != null) onBeginLookAt.Invoke(i);
     }
-    public void StopLookAt(Interactable i)
+    public void StopLookAt(InteractableObject i)
     {
         if (onStopLookAt != null) onStopLookAt.Invoke(i);
     }
-    public void InteractWith(Interactable i)
+    public void InteractWith(InteractableObject i)
     {
         if (onBeginInteract != null) onBeginInteract.Invoke(i);
     }

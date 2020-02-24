@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestInteractable : Interactable
+public class ChestInteractable : InteractableObject
 {
     public GameObject Lid;
     public Loot loot;
 
     public override void Interact()
     {
-        if (!IsCloseEnough()) return;
+        //if (!IsCloseEnough()) return;
         base.Interact();
         Lid.GetComponent<Animator>().Play("Opening");
         var gm = FindObjectOfType<GameManager>();

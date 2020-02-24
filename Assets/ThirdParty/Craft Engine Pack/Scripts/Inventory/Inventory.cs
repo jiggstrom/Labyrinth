@@ -75,6 +75,8 @@ public class Inventory : MonoBehaviour
     Cell m_selectedTool;
     public int m_toolCount { get; private set; }
 
+    public Action OnInventoryChanged;
+
     public bool m_isItPossibleToGoToGame// to go to game possible in case when cursor is not holding items and in crafter are not items
     {
         get
@@ -99,6 +101,11 @@ public class Inventory : MonoBehaviour
             m_selectedTool = value;
             m_view.SelectedToolChangedHandler(value);
         }
+    }
+
+    internal int Itemcount()
+    {
+        return m_cells.Count(x => x.m_item != null);
     }
 
     public Cell GetCellOnIndex(int index)//get concrete cell via index
@@ -252,6 +259,7 @@ public class Inventory : MonoBehaviour
         if ((index = SearchSlot(it)) != -1)
         {
             m_cells[index].Add(it);
+            OnInventoryChanged?.Invoke();
             if (index < m_toolCount)//if this cell is from tools panel -> call event handler
                 m_controller.SelectedToolChangedHandler();
             return true;

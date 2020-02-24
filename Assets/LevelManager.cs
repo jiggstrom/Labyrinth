@@ -4,7 +4,8 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
     [SerializeField]
     private LevelData _levelData;
@@ -15,58 +16,79 @@ public class LevelManager : MonoBehaviour {
     public DoorInteractable levelExitDoor;
 
     // Use this for initialization
-    void Start () {
-        //TODO:
-        //Inventory.instance.onChanged += () =>
-        //{
-        //    if (Inventory.instance.items.Any(x => x.name == "Map") && !MapChecked)
-        //    {
-        //        GameManager.instance.ShowHint("Tryck 'M' för att visa/dölja kartan.");
-        //    }
-        //    else if (!InventoryChecked)
-        //    {
-        //        GameManager.instance.ShowHint("Tryck 'E' för att visa/dölja inventory.");
-        //    }
+    void Start()
+    {
+        GameManager.instance.inventory.OnInventoryChanged += InventoryChanged;
+        GameManager.instance.onBeginLookAt += BeginLookAt;
+        GameManager.instance.onStopLookAt += StopLookAt;
+        GameManager.instance.onBeginInteract += SetHasInteracted;
+        levelExitDoor.onOpened += LevelCleared;
 
-        //};
-        GameManager.instance.onBeginLookAt += x =>
-        {
-            if(!HasInteracted)
-                GameManager.instance.ShowHint("Tryck höger musknapp för att interagera med saker.");
-
-        };
-        GameManager.instance.onStopLookAt += x =>
-        {
-            if (!HasInteracted)
-                GameManager.instance.HideHint();
-        };
-
-        GameManager.instance.onBeginInteract += x => { HasInteracted = true; };
-
-        levelExitDoor.onOpened += () =>
-        {
-            var lm = LevelLoadManager.instance;
-            lm.Greet(
-                "Grattis, du har nu klarat introduktionen och är redo för en ritig utmaning! Välkommen till nästa nivå!", "Meny");
-        };
 
         var ps = GameObject.FindGameObjectWithTag("PlayerSpawn").transform;
         var pl = GameObject.FindGameObjectWithTag("Player").transform;
-        pl.localPosition = ps.localPosition;
+        //pl.localPosition = ps.localPosition;
+
+    }
+
+    private void LevelCleared()
+    {
+        var lm = LevelLoadManager.instance;
+        lm.Greet(
+            "Grattis, du har nu klarat introduktionen och är redo för en ritig utmaning! Välkommen till nästa nivå!", "Meny");
+    }
+
+    private void SetHasInteracted(InteractableObject obj)
+    {
+        HasInteracted = true;
+    }
+
+    private void BeginLookAt(InteractableObject x)
+    {
+        if (!HasInteracted)
+            GameManager.instance.ShowHint("Tryck höger musknapp för att interagera med saker.");
+
+    }
+    private void StopLookAt(InteractableObject x)
+    {
+        if (!HasInteracted)
+            GameManager.instance.HideHint();
+
+    }
+
+    private void InventoryChanged()
+    {
+        if (GameManager.instance.inventory.PlayerHasItem("Map") && !MapChecked)
+        {
+            GameManager.instance.ShowHint("Tryck 'M' för att visa/dölja kartan.");
+        }
+        else if (!InventoryChecked)
+        {
+            GameManager.instance.ShowHint("Tryck 'E' för att visa/dölja inventory.");
+        }
 
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (Input.GetButtonDown("Map"))
         {
-            // TODO:
-            //if (Inventory.instance.items.Any(x => x.name == "Map")) MapChecked = true;
+            if (GameManager.instance.inventory.PlayerHasItem("Map")) MapChecked = true;
         }
         if (Input.GetButtonDown("Inventory"))
         {
-            //TODO:
-            //if (Inventory.instance.items.Count > 1) InventoryChecked = true;
+            if (GameManager.instance.inventory.Itemcount() > 0) InventoryChecked = true;
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.inventory.OnInventoryChanged -= InventoryChanged;
+        GameManager.instance.onBeginLookAt -= BeginLookAt;
+        GameManager.instance.onStopLookAt -= StopLookAt;
+        GameManager.instance.onBeginInteract -= SetHasInteracted;
+        levelExitDoor.onOpened -= LevelCleared;
+
     }
 }

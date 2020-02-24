@@ -8,7 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destructible : Interactable {
+public class Destructible : InteractableObject {
 
 	public GameObject destroyedVersion; // Reference to the shattered version of the object
     public Loot loot;
@@ -16,7 +16,7 @@ public class Destructible : Interactable {
     // If the player clicks on the object
     public override void Interact()
     {
-        if (!IsCloseEnough()) return;
+        //if (!IsCloseEnough()) return;
         base.Interact();
         var gm = FindObjectOfType<GameManager>();
 

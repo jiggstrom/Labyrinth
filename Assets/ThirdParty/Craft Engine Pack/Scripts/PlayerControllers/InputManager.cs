@@ -178,7 +178,7 @@ public class InputManager : MonoBehaviour {
 
         //click -> call item interaction
         unit = new InputUnit { InputCheckerByKey = (k) => !m_isInMenu && Input.GetKey(k), Key = KeyCode.Mouse0 };
-        unit.Pushed += new Action(() => { if (m_toolActionController) m_toolActionController.Hit2(); });
+        unit.Pushed += new Action(() => { if (m_toolActionController) m_toolActionController.Hit(); });
         group.m_inputUnits.Add(InputManager.InteractionHit, unit);
 
         m_inputGroups.Add(InputManager.InteractGroup, group);

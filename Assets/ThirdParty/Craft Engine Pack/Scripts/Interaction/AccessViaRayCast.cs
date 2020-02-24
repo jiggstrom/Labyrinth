@@ -34,9 +34,11 @@ public class AccessViaRayCast : MonoBehaviour {
             {
                 //print interaction key and hint to interact
                 m_interactionHintText.text = m_interactionKey.Key.ToString() + " to " + (m_currentObject.m_itemDescription.m_isLiftable ? "pick up" : "interact with") + " a " + m_currentObject.m_itemDescription.m_name;
+                GameManager.instance.onBeginLookAt(m_currentObject);
             }
             else
             {
+                GameManager.instance.onStopLookAt(m_currentObject);
                 m_interactionHintText.text = "";
             }
         }
