@@ -27,7 +27,7 @@ public class AccessViaRayCast : MonoBehaviour {
     {
         //Ray ray = new Ray(m_camera.transform.position, m_camera.transform.forward);
         RaycastHit hit;
-        if (Physics.SphereCast(m_camera.transform.position, m_rayWidth, m_camera.transform.forward, out hit, m_maxDistance, 1 << 8)) // raycast forward from camera (only objects with "Visible" layer set)
+        if (Physics.SphereCast(m_camera.transform.position, m_rayWidth, m_camera.transform.forward, out hit, m_maxDistance, 512)) // raycast forward from camera (only objects with "Visible" layer set)
         {
             m_objectToHit = hit.collider.gameObject.GetComponent<HitableObject>();
             if (m_currentObject = hit.collider.gameObject.GetComponent<InteractableObject>())
@@ -68,7 +68,10 @@ public class AccessViaRayCast : MonoBehaviour {
             if (m_currentObject.m_itemDescription.m_isLiftable)
                 PickUp();
             else
+            {
                 m_currentObject.Interact();
+                // m_currentObject.GetComponent<InteractableObject>().enabled = false;
+            }
         }
     }
 }

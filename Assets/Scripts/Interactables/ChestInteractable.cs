@@ -7,16 +7,25 @@ public class ChestInteractable : InteractableObject
 {
     public GameObject Lid;
     public Loot loot;
-
+    private bool isOpen = false;
     public override void Interact()
     {
         //if (!IsCloseEnough()) return;
         base.Interact();
-        Lid.GetComponent<Animator>().Play("Opening");
-        var gm = FindObjectOfType<GameManager>();
-        if (loot != null)
+
+        if (!isOpen)
         {
-            if(gm.LootFound(loot, this)) loot = null;
+            isOpen = true;
+            Lid.GetComponent<Animator>().Play("Opening");
+            var gm = FindObjectOfType<GameManager>();
+            //if (loot != null)
+            //{
+                if (gm.LootFound(loot, this)) loot = null;
+            //}
+        }
+        else
+        {
+            StopInteracting();
         }
     }
 
@@ -24,6 +33,7 @@ public class ChestInteractable : InteractableObject
     {
         base.StopInteracting();
         Lid.GetComponent<Animator>().Play("Closing");
+        isOpen = false;
     }
 }
 
