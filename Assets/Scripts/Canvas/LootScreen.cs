@@ -7,7 +7,7 @@ using TMPro;
 public class LootScreen : MonoBehaviour {
 
     public TMP_Text Text;
-    public Image Image;
+    public RawImage Image;
 
 	// Use this for initialization
 	void Start () {

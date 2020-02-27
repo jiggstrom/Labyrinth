@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChestInteractable : InteractableObject
 {
     public GameObject Lid;
-    public Loot loot;
+    public ItemDescription loot;
     private bool isOpen = false;
     public override void Interact()
     {

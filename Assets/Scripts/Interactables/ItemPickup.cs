@@ -21,7 +21,8 @@ public class ItemPickup : Interactable {
         var oldAmount = loot.Amount;
         loot.Amount *= Amount;
 
-        GameManager.instance.LootFound(loot, this);
+        //TODO:
+        //GameManager.instance.LootFound(loot, this);
         loot.Amount = oldAmount;
         Destroy(gameObject);
     }

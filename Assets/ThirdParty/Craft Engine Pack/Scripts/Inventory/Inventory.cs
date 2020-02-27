@@ -251,7 +251,7 @@ public class Inventory : MonoBehaviour
 
     public bool PlayerHasItem(string name)
     {
-        return m_cells.Any(x => x.m_item.m_name == name);
+        return m_cells.Any(x => x.m_item?.m_name == name);
     }
     public bool Put(ItemDescription it) // put item to backpack
     {

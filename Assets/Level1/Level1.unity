@@ -6206,7 +6206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_itemDescription: {fileID: 0}
   Lid: {fileID: 1457893716359215}
-  loot: {fileID: 11400000, guid: 9ddfad221322966478f500379ee489b1, type: 2}
+  loot: {fileID: 0}
 --- !u!114 &114291394610399895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6297,7 +6297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_itemDescription: {fileID: 0}
   Lid: {fileID: 1537920835972903}
-  loot: {fileID: 11400000, guid: 1c86bd5fccf9aec4d9f981f12fc1db61, type: 2}
+  loot: {fileID: 0}
 --- !u!114 &114866392876473533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6312,7 +6312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_itemDescription: {fileID: 0}
   Lid: {fileID: 1007942181192121}
-  loot: {fileID: 11400000, guid: f59156894b2401c41819800d2811a6c1, type: 2}
+  loot: {fileID: 0}
 --- !u!114 &114885956360045477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6327,7 +6327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_itemDescription: {fileID: 0}
   Lid: {fileID: 1237646344907357}
-  loot: {fileID: 11400000, guid: a15a0c65a1c712246a659c7c3627ef27, type: 2}
+  loot: {fileID: 0}
 --- !u!198 &198031488664701639
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -119047,7 +119047,7 @@ MonoBehaviour:
   m_itemDescription: {fileID: 114609455463962856, guid: c12a59d9d14074c45a8aa544beac33d3,
     type: 3}
   Lid: {fileID: 6927021862330654284}
-  loot: {fileID: 11400000, guid: f07fb64c43c08f445acfa13922b7528c, type: 2}
+  loot: {fileID: 114609455463962856, guid: 957a4e58233f31148b00719f518bc729, type: 3}
 --- !u!1 &8034088764042913379
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,7 +29,8 @@ public class Destructible : InteractableObject {
 
         if (loot != null)
         {
-            if (gm.LootFound(loot, this)) loot = null;
+            //TODO:
+            //if (gm.LootFound(loot, this)) loot = null;
         }
     }
 }

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDescription : MonoBehaviour {
+public class ItemDescription : MonoBehaviour
+{
     public bool m_isLiftable = true;//can we lift it and put in backpack?
     public bool m_isVisibleInHands = true;// can we hold it in hands?
     public string m_name;

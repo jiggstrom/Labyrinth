@@ -56,8 +56,12 @@ public class GameManager : MonoBehaviour
     void Update () {
         if (Input.GetButtonDown("Map"))
         {
-            if(inventory.PlayerHasItem("Map"))
+            Debug.Log("Map pressed");
+            if (inventory.PlayerHasItem("Map"))
+            {
+                Debug.Log("Map found");
                 Canvas.ToggleMinimap();
+            }
         }
         //if (Input.GetButtonDown("Inventory"))
         //{
@@ -100,7 +104,7 @@ public class GameManager : MonoBehaviour
     //    Inventory.instance.RemoveInventoryItem(loot);
     //}
 
-    internal bool LootFound(Loot loot, InteractableObject interactable)
+    internal bool LootFound(ItemDescription loot, InteractableObject interactable)
     {
         currentInteractable = interactable;
         Canvas.ShowLootScreen();
@@ -110,35 +114,36 @@ public class GameManager : MonoBehaviour
             if (loot != null)
             {
                 screen.Text.text = "Du hittade " + loot.name;
-                screen.Image.sprite = loot.InventoryImage;
+                screen.Image.texture = Resources.Load<Texture>("Sprites/" + loot.m_sprite); //loot.InventoryImage;
 
-                if (loot.LootType == LootType.Health)
-                {
-                    var vitals = Player.GetComponent<PlayerVitals>();
-                    vitals.GetHealth(loot.Amount);
+                //if (loot.LootType == LootType.Health)
+                //{
+                //    var vitals = Player.GetComponent<PlayerVitals>();
+                //    vitals.GetHealth(loot.Amount);
+                //    return true;
+                //}
+                //else if (loot.LootType == LootType.Energy)
+                //{
+                //    var vitals = Player.GetComponent<PlayerVitals>();
+                //    vitals.GetEnergy(loot.Amount);
+                //    return true;
+                //}
+                //else if (loot.LootType == LootType.Gold)
+                //{
+                //    var vitals = Player.GetComponent<PlayerVitals>();
+                //    vitals.GetGold(loot.Amount);
+                //    return true;
+                //}
+                //else
+                //{
+                    inventory.Put(loot);
                     return true;
-                }
-                else if (loot.LootType == LootType.Energy)
-                {
-                    var vitals = Player.GetComponent<PlayerVitals>();
-                    vitals.GetEnergy(loot.Amount);
-                    return true;
-                }
-                else if (loot.LootType == LootType.Gold)
-                {
-                    var vitals = Player.GetComponent<PlayerVitals>();
-                    vitals.GetGold(loot.Amount);
-                    return true;
-                }
-                else
-                {
-                    //return Inventory.instance.AddLoot(loot);
-                }
+                //}
             }
             else
             {
                 screen.Text.text = "Du hittade ingenting";
-                screen.Image.sprite = null;
+                screen.Image.texture = null;
                 return false;
             }
         }
@@ -163,11 +168,11 @@ public class GameManager : MonoBehaviour
             screen.Text.text = text;
             if (image != null)
             {
-                screen.Image.sprite = image;
+                screen.Image.texture = image.texture;
             }
             else
             {
-                screen.Image.sprite = null;
+                screen.Image.texture = null;
             }
         }
     }
