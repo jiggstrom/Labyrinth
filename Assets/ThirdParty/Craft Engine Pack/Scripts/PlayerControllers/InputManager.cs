@@ -203,7 +203,7 @@ public class InputManager : MonoBehaviour {
 
     void EscapeHandler()
     {
-        if (m_inventoryMenu.active)
+        if (m_inventoryMenu.activeSelf)
         {
             if (!m_controller.m_inventory.m_isItPossibleToGoToGame)
                 return;
