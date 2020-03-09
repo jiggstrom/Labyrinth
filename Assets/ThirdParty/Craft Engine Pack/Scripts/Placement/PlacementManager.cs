@@ -61,7 +61,7 @@ public class PlacementManager : MonoBehaviour {
         {
             Ray ray = new Ray(m_camera.transform.position, m_camera.transform.forward);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, m_maxPlacementDistance, 1 << 9))//raycast terrain
+            if (Physics.Raycast(ray, out hit, m_maxPlacementDistance, 1 << 11))//raycast terrain
             {
                 m_ghost.transform.position = new Vector3(hit.point.x, hit.point.y + m_height, hit.point.z);
                 if (m_ghost.GetComponent<PlacableItem>().m_isIntersect)

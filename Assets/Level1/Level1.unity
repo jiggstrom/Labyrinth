@@ -2549,7 +2549,7 @@ GameObject:
   - component: {fileID: 23675449751650401}
   - component: {fileID: 33013828151876393}
   - component: {fileID: 64152054509754441}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Floor 0,0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119044,10 +119044,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16ee3ab711f3f24c9862f967e4d97f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_itemDescription: {fileID: 114609455463962856, guid: c12a59d9d14074c45a8aa544beac33d3,
-    type: 3}
+  m_itemDescription: {fileID: 11400000, guid: 0577034c11b1a3b47ac3adb4f57491b4, type: 2}
   Lid: {fileID: 6927021862330654284}
-  loot: {fileID: 114609455463962856, guid: 957a4e58233f31148b00719f518bc729, type: 3}
+  loot: {fileID: 11400000, guid: 8194db6d383320f428a16eba62fe860d, type: 2}
 --- !u!1 &8034088764042913379
 GameObject:
   m_ObjectHideFlags: 0
