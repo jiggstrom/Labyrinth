@@ -52,7 +52,8 @@ public class AccessViaRayCast : MonoBehaviour {
 
     void PickUp()//pick up liftable object
     {
-        if (m_inventory.Put(m_currentObject.m_itemDescription))// if inventory records this object -> destroy it from scene
+        //if (m_inventory.Put(m_currentObject.m_itemDescription))// if inventory records this object -> destroy it from scene
+        if(GameManager.instance.LootFound(m_currentObject.m_itemDescription, m_currentObject))
             GameObject.Destroy(m_currentObject.gameObject);
         else
         {
@@ -66,7 +67,10 @@ public class AccessViaRayCast : MonoBehaviour {
         if(m_currentObject)
         {
             if (m_currentObject.m_itemDescription.m_isLiftable)
+            {
+                GameManager.instance.InteractWith(m_currentObject);
                 PickUp();
+            }
             else
             {
                 m_currentObject.Interact();

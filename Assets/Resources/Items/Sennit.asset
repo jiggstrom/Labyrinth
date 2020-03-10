@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isLiftable: 0
   m_isVisibleInHands: 0
+  LootType: 5
   m_name: Sennit
   m_prefab: Sennit
   m_sprite: sennit

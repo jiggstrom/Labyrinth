@@ -11,7 +11,7 @@ using UnityEngine;
 public class Destructible : InteractableObject {
 
 	public GameObject destroyedVersion; // Reference to the shattered version of the object
-    public Loot loot;
+    public ItemDescription loot;
 
     // If the player clicks on the object
     public override void Interact()
@@ -30,7 +30,7 @@ public class Destructible : InteractableObject {
         if (loot != null)
         {
             //TODO:
-            //if (gm.LootFound(loot, this)) loot = null;
+            if (gm.LootFound(loot, this)) loot = null;
         }
     }
 }

@@ -260,12 +260,45 @@ public class Inventory : MonoBehaviour
         {
             m_cells[index].Add(it);
             OnInventoryChanged?.Invoke();
-            if (index < m_toolCount)//if this cell is from tools panel -> call event handler
-                m_controller.SelectedToolChangedHandler();
+            //if (index < m_toolCount)//if this cell is from tools panel -> call event handler
+            //    m_controller.SelectedToolChangedHandler();
             return true;
         }
         else
             return false;
+    }
+
+    public bool Remove(string name) //Remove one instance of itemtype.
+    {
+        var cell = m_cells.FirstOrDefault(x => x.m_item?.m_name == name);
+
+        if (cell != null && cell.m_item != null)
+        {
+                cell.m_count--;
+                OnInventoryChanged?.Invoke();
+                //if (index < m_toolCount)//if this cell is from tools panel -> call event handler
+                //m_controller.SelectedToolChangedHandler();
+                return true;
+        }
+
+        return false;
+    }
+    public bool Remove(ItemDescription it) //Remove one instance of itemtype.
+    {
+        int index;
+        if ((index = SearchSlot(it)) != -1)
+        {
+            if (m_cells[index].m_item != null)
+            {
+                m_cells[index].m_count--;
+                OnInventoryChanged?.Invoke();
+                if (index < m_toolCount)//if this cell is from tools panel -> call event handler
+                    m_controller.SelectedToolChangedHandler();
+                return true;
+            }
+        }
+
+        return false;
     }
     public Cell SearchCellInCrafterByItemDescription(ItemDescription element, List<Cell>selectedItems)
     {

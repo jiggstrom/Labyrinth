@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc9c8879c1dc54a4ca8bf954586e1537, type: 3}
-  m_Name: Stick
+  m_Name: Coin
   m_EditorClassIdentifier: 
   m_isLiftable: 1
-  m_isVisibleInHands: 1
-  LootType: 6
-  m_name: Stick
-  m_prefab: Stick
-  m_sprite: stick
-  m_maxCount: 8
+  m_isVisibleInHands: 0
+  LootType: 4
+  m_name: Coin
+  m_prefab: 
+  m_sprite: Coins
+  m_maxCount: 0
   m_receiptItems: []

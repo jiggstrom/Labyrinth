@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemPickup : Interactable {
-    public Loot loot;
     public int Amount = 1;
     public override void Interact()
     {
@@ -18,12 +17,12 @@ public class ItemPickup : Interactable {
 
     private void Pickup()
     {
-        var oldAmount = loot.Amount;
-        loot.Amount *= Amount;
+        //var oldAmount = m_itemDescription.Amount;
+        //loot.Amount *= Amount;
 
         //TODO:
-        //GameManager.instance.LootFound(loot, this);
-        loot.Amount = oldAmount;
+        GameManager.instance.LootFound(m_itemDescription, this, Amount);
+        //loot.Amount = oldAmount;
         Destroy(gameObject);
     }
 }

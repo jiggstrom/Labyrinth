@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 136099032286506638}
   - component: {fileID: 114677030363780182}
   - component: {fileID: 54147464047116526}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4605941234674060}
   - component: {fileID: 33368362470665808}
   - component: {fileID: 23380488715341598}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

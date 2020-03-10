@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isLiftable: 1
   m_isVisibleInHands: 1
+  LootType: 6
   m_name: Rock
   m_prefab: Rock
   m_sprite: rock

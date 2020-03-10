@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4059766155290432}
   - component: {fileID: 33724114017058780}
   - component: {fileID: 23588002103197884}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 114976485011768378}
   - component: {fileID: 82862713005132404}
   - component: {fileID: 114054829218429116}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WoodPeace
   m_TagString: Untagged
   m_Icon: {fileID: 0}

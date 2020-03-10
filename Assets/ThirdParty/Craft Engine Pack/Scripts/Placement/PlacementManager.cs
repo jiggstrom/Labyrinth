@@ -86,7 +86,9 @@ public class PlacementManager : MonoBehaviour {
     {
         if (!m_placable)
             return false;
-        Instantiate(m_objectToPlace, m_ghost.transform.position, m_ghost.transform.rotation);
+        var clone = Instantiate(m_objectToPlace, m_ghost.transform.position, m_ghost.transform.rotation);
+        var rb = clone.GetComponent<Rigidbody>();
+        if (rb != null) rb.isKinematic = true;
         m_objectToPlace = null;
         return true;
     }

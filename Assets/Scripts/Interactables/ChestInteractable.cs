@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestInteractable : InteractableObject
+public class ChestInteractable : Interactable
 {
     public GameObject Lid;
     public ItemDescription loot;

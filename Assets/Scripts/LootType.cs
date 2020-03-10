@@ -5,5 +5,7 @@
     Armor,
     Clothing, 
     Gold,
-    Asset
+    Asset,
+    Tool,
+    Weapeon
 }

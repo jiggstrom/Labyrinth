@@ -5,17 +5,17 @@ using UnityEngine.Audio;
 
 public class DoorInteractable : Interactable {
     public GameObject Door;
-    public Loot[] ItemsNeeded;
+    public ItemDescription[] ItemsNeeded;
     public int GoldNeeded = 0;
     private bool isOpen = false;
-    public Sprite goldImage;
+    public Texture goldImage;
     public delegate void OnOpened();
     public OnOpened onOpened;
 
     public override void Interact()
     {
-        if (!IsCloseEnough()) return;
-
+        //if (!IsCloseEnough()) return;
+        Debug.Log("Interacting with door");
         base.Interact();
 
         if(isOpen)
@@ -30,23 +30,23 @@ public class DoorInteractable : Interactable {
             var gm = FindObjectOfType<GameManager>();
             if(ItemsNeeded.Length > 0)
             {
-                var inventory = gm.GetComponent<Inventory>();
+
+                var inventory = gm.inventory;
                 if (inventory != null)
                 {
                     foreach (var item in ItemsNeeded)
                     {
                         //TODO:
-                        //if (!inventory.items.Contains(item))
-                        //{
-                        //    Debug.Log("Missing: " + item.Description);
-                        //    gm.ShowMessage("Du behöver " + item.Description + " för att öppna dörren.", item.InventoryImage);
-                        //    return;
-                        //}
+                        if (!inventory.PlayerHasItem(item.name))
+                        {
+                            Debug.Log("Missing: " + item.name);
+                            gm.ShowMessage("Du behöver " + item.name + " för att öppna dörren.", Resources.Load<Texture>("Sprites/" + item.m_sprite));
+                            return;
+                        }
                     }
                     foreach (var item in ItemsNeeded)
                     {
-                        //TODO:
-                        //if (!inventory.items.Contains(item)) inventory.items.Remove(item);
+                        if (inventory.PlayerHasItem(item.name)) inventory.Remove(item.name);
                     }
                 }
                 else
@@ -71,6 +71,8 @@ public class DoorInteractable : Interactable {
                     }
                 }
             }
+
+            Debug.Log("Door opens!");
 
             isOpen = true;
             Door.GetComponent<Animator>().Play("Open");

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4963618112269220}
   - component: {fileID: 33416242143931008}
   - component: {fileID: 23506944411072888}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 114413510893970230}
   - component: {fileID: 114086053744132958}
   - component: {fileID: 65035194142135664}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Stone fragment
   m_TagString: Untagged
   m_Icon: {fileID: 0}

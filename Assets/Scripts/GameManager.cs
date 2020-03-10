@@ -104,50 +104,53 @@ public class GameManager : MonoBehaviour
     //    Inventory.instance.RemoveInventoryItem(loot);
     //}
 
-    internal bool LootFound(ItemDescription loot, InteractableObject interactable)
+    internal bool LootFound(ItemDescription loot, InteractableObject interactable, int amount = 0)
     {
         currentInteractable = interactable;
-        Canvas.ShowLootScreen();
-        var screen = Canvas.LootScreen.GetComponent<LootScreen>();
-        if(screen != null)
-        {
+        //Canvas.ShowLootScreen();
+        //var screen = Canvas.LootScreen.GetComponent<LootScreen>();
+
+        var myi = interactable as ItemPickup;
+        if (myi != null && amount == 0) amount = myi.Amount;
+
+        //if (screen != null)
+        //{
             if (loot != null)
             {
-                screen.Text.text = "Du hittade " + loot.name;
-                screen.Image.texture = Resources.Load<Texture>("Sprites/" + loot.m_sprite); //loot.InventoryImage;
+                ShowHint("Du hittade " + loot.name);
+                //screen.Image.texture = Resources.Load<Texture>("Sprites/" + loot.m_sprite); //loot.InventoryImage;
 
-                //if (loot.LootType == LootType.Health)
-                //{
-                //    var vitals = Player.GetComponent<PlayerVitals>();
-                //    vitals.GetHealth(loot.Amount);
-                //    return true;
-                //}
-                //else if (loot.LootType == LootType.Energy)
-                //{
-                //    var vitals = Player.GetComponent<PlayerVitals>();
-                //    vitals.GetEnergy(loot.Amount);
-                //    return true;
-                //}
-                //else if (loot.LootType == LootType.Gold)
-                //{
-                //    var vitals = Player.GetComponent<PlayerVitals>();
-                //    vitals.GetGold(loot.Amount);
-                //    return true;
-                //}
-                //else
-                //{
+                if (loot.LootType == LootType.Health)
+                {
+                    var vitals = Player.GetComponent<PlayerVitals>();
+                    vitals.GetHealth(amount);
+                    return true;
+                }
+                else if (loot.LootType == LootType.Energy)
+                {
+                    var vitals = Player.GetComponent<PlayerVitals>();
+                    vitals.GetEnergy(amount);
+                    return true;
+                }
+                else if (loot.LootType == LootType.Gold)
+                {
+                    var vitals = Player.GetComponent<PlayerVitals>();
+                    vitals.GetGold(amount);
+                    return true;
+                }
+                else
+                {
                     inventory.Put(loot);
                     return true;
-                //}
+                }
             }
             else
             {
-                screen.Text.text = "Du hittade ingenting";
-                screen.Image.texture = null;
+                ShowHint("Du hittade ingenting");
+                //screen.Image.texture = null;
                 return false;
             }
-        }
-        return false;
+
     }
 
     internal void LootTaken()
@@ -159,7 +162,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ShowMessage(string text, Sprite image)
+    public void ShowMessage(string text, Texture image)
     {
         Canvas.ShowLootScreen();
         var screen = Canvas.LootScreen.GetComponent<LootScreen>();
@@ -168,7 +171,7 @@ public class GameManager : MonoBehaviour
             screen.Text.text = text;
             if (image != null)
             {
-                screen.Image.texture = image.texture;
+                screen.Image.texture = image;
             }
             else
             {
