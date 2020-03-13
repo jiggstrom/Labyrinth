@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class DoorInteractable : Interactable {
+public class DoorInteractable : InteractableObject {
     public GameObject Door;
     public ItemDescription[] ItemsNeeded;
     public int GoldNeeded = 0;
@@ -14,13 +14,12 @@ public class DoorInteractable : Interactable {
 
     public override void Interact()
     {
-        //if (!IsCloseEnough()) return;
         Debug.Log("Interacting with door");
         base.Interact();
 
         if(isOpen)
         {
-            //base.StopInteracting();
+            base.StopInteracting();
             isOpen = false;
             Door.GetComponent<Animator>().Play("Close");
             Door.GetComponent<AudioSource>().Play();

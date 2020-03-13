@@ -258,9 +258,17 @@ public class CraftCharacterController : MonoBehaviour
             //disable all that can disturb us
             if(tool.GetComponent<Rigidbody>())
                 tool.GetComponent<Rigidbody>().useGravity = false;
-            Destroy(tool.GetComponent<Collider>());
-            foreach (Collider c in tool.GetComponentsInChildren<Collider>())
-                Destroy(c);
+            var colliders = tool.GetComponents<Collider>();
+            foreach (var collider in colliders)
+            {
+                if(!collider.isTrigger)
+                    Destroy(tool.GetComponent<Collider>());
+            }
+            foreach (Collider collider in tool.GetComponentsInChildren<Collider>())
+            {
+                if (!collider.isTrigger)
+                    Destroy(collider);
+            }
 
             //set position and rotation
             tool.transform.localPosition = new Vector3();

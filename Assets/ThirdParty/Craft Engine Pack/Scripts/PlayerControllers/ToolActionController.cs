@@ -46,4 +46,12 @@ public class ToolActionController : MonoBehaviour {
             m_didHitStart = false; // if we get there -> hit execution finished
         }
     }
+    public void HitSomeSuface()
+    {
+        if (m_multiplier < 0) return;
+
+        if (m_tool) // if we have tool -> call that 'Action' function
+            m_tool.Action();
+        m_multiplier *= -1.0f;
+    }
 }

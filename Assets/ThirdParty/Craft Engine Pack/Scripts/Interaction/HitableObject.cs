@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitableObject : MonoBehaviour {
+public class HitableObject : InteractableObject {
     protected AudioSource m_audioSource;
     void Start()
     {

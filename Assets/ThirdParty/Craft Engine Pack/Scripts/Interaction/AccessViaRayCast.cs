@@ -12,6 +12,7 @@ public class AccessViaRayCast : MonoBehaviour {
     public InputManager m_inputManager;
 
     InputUnit m_interactionKey;// for print hint
+    InputUnit m_hitKey;// for print hint
     public InteractableObject m_currentObject { get; private set; }// object we see at the moment
     public HitableObject m_objectToHit { get; private set; }// hitable object we see at the moment
     Inventory m_inventory;
@@ -20,6 +21,7 @@ public class AccessViaRayCast : MonoBehaviour {
         m_currentObject = null;
         m_objectToHit = null;
         m_interactionKey = m_inputManager.GetInputUnit(InputManager.InteractGroup, InputManager.Interaction);
+        m_hitKey = m_inputManager.GetInputUnit(InputManager.InteractGroup, InputManager.InteractionHit);
         m_interactionHintText.text = "";
         m_inventory = GetComponent<Inventory>();
     }
@@ -27,13 +29,21 @@ public class AccessViaRayCast : MonoBehaviour {
     {
         //Ray ray = new Ray(m_camera.transform.position, m_camera.transform.forward);
         RaycastHit hit;
-        if (Physics.SphereCast(m_camera.transform.position, m_rayWidth, m_camera.transform.forward, out hit, m_maxDistance, 512)) // raycast forward from camera (only objects with "Visible" layer set)
+
+        if (!GameManager.instance.Canvas.LootScreen.activeInHierarchy && Physics.SphereCast(m_camera.transform.position, m_rayWidth, m_camera.transform.forward, out hit, m_maxDistance, 512)) // raycast forward from camera (only objects with "Visible" layer set)
         {
-            m_objectToHit = hit.collider.gameObject.GetComponent<HitableObject>();
-            if (m_currentObject = hit.collider.gameObject.GetComponent<InteractableObject>())
+            if(m_objectToHit = hit.collider.gameObject.GetComponent<HitableObject>())
+            {
+                if ((GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType ?? LootType.Asset) == LootType.Tool)
+                {
+                    m_interactionHintText.text = $" Click {m_hitKey.Key} to hit";
+                    GameManager.instance.onBeginLookAt(m_currentObject);
+                }
+            }
+            else if (!hit.collider.isTrigger && (m_currentObject = hit.collider.gameObject.GetComponent<InteractableObject>()) )
             {
                 //print interaction key and hint to interact
-                m_interactionHintText.text = m_interactionKey.Key.ToString() + " to " + (m_currentObject.m_itemDescription.m_isLiftable ? "pick up" : "interact with") + " a " + m_currentObject.m_itemDescription.m_name;
+                m_interactionHintText.text = $"{ m_interactionKey.Key} to {(m_currentObject.m_itemDescription.m_isLiftable ? "pick up" : "interact with")} a {m_currentObject.m_itemDescription.m_name}";
                 GameManager.instance.onBeginLookAt(m_currentObject);
             }
             else
@@ -50,32 +60,12 @@ public class AccessViaRayCast : MonoBehaviour {
         }
     }
 
-    void PickUp()//pick up liftable object
-    {
-        //if (m_inventory.Put(m_currentObject.m_itemDescription))// if inventory records this object -> destroy it from scene
-        if(GameManager.instance.LootFound(m_currentObject.m_itemDescription, m_currentObject))
-            GameObject.Destroy(m_currentObject.gameObject);
-        else
-        {
-            //if not -> drop it!
-            m_currentObject.transform.position = transform.position + transform.forward * 2 + transform.up;
-            m_currentObject.transform.rotation = Quaternion.Euler(Random.insideUnitSphere * 100);
-        }
-    }
     public void Interact()
     {
         if(m_currentObject)
         {
-            if (m_currentObject.m_itemDescription.m_isLiftable)
-            {
-                GameManager.instance.InteractWith(m_currentObject);
-                PickUp();
-            }
-            else
-            {
-                m_currentObject.Interact();
-                // m_currentObject.GetComponent<InteractableObject>().enabled = false;
-            }
+            GameManager.instance.InteractWith(m_currentObject);
+            m_currentObject.Interact();
         }
     }
 }

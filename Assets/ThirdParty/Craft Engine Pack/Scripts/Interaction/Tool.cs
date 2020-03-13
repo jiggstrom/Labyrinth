@@ -7,7 +7,8 @@ public enum ToolType
     Axe,
     Hammer,
     Rock,
-    StoneFragment
+    StoneFragment,
+    Pickaxe
 }
 
 public class Tool : MonoBehaviour {
@@ -18,4 +19,11 @@ public class Tool : MonoBehaviour {
         if (m_eyes.m_objectToHit)
             m_eyes.m_objectToHit.HandleHit(m_type);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log($"{gameObject.name} collided with {other.gameObject.name}");
+        m_eyes?.GetComponent<ToolActionController>()?.HitSomeSuface();
+    }
 }
+

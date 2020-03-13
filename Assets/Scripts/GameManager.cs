@@ -93,10 +93,10 @@ public class GameManager : MonoBehaviour
             LootTaken();
             //fpc.MouseLookEnabled = true;
         }
-        else
-        {
-            LevelLoadManager.instance.Greet("Hej då, bättre lycka nästa gång!", "Meny");
-        }
+        //else
+        //{
+        //    LevelLoadManager.instance.Greet("Hej då, bättre lycka nästa gång!", "Meny");
+        //}
     }
 
     //internal void RemoveInventoryItem(Loot loot)
@@ -109,9 +109,6 @@ public class GameManager : MonoBehaviour
         currentInteractable = interactable;
         //Canvas.ShowLootScreen();
         //var screen = Canvas.LootScreen.GetComponent<LootScreen>();
-
-        var myi = interactable as ItemPickup;
-        if (myi != null && amount == 0) amount = myi.Amount;
 
         //if (screen != null)
         //{

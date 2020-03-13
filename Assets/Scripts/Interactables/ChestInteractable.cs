@@ -3,14 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestInteractable : Interactable
+public class ChestInteractable : InteractableObject
 {
     public GameObject Lid;
     public ItemDescription loot;
     private bool isOpen = false;
     public override void Interact()
     {
-        //if (!IsCloseEnough()) return;
         base.Interact();
 
         if (!isOpen)
@@ -18,10 +17,11 @@ public class ChestInteractable : Interactable
             isOpen = true;
             Lid.GetComponent<Animator>().Play("Opening");
             var gm = FindObjectOfType<GameManager>();
-            //if (loot != null)
-            //{
-                if (gm.LootFound(loot, this)) loot = null;
-            //}
+            if(loot != null)
+                gm.ShowMessage($"Du hittade {loot.name}", Resources.Load<Texture>("Sprites/" + loot.m_sprite));
+            
+
+            if (gm.LootFound(loot, this)) loot = null;
         }
         else
         {
@@ -32,6 +32,8 @@ public class ChestInteractable : Interactable
     public override void StopInteracting()
     {
         base.StopInteracting();
+        var gm = FindObjectOfType<GameManager>();
+        gm.CloseLootScreen();
         Lid.GetComponent<Animator>().Play("Closing");
         isOpen = false;
     }

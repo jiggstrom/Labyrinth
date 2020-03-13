@@ -9,6 +9,8 @@ public class ZombieManager : MonoBehaviour
     private Vector3 _lastFramePosition;
     private Animator _anim;
     private NavMeshAgent _ma;
+    NavMeshPath path;
+
     Vector2 smoothDeltaPosition = Vector2.zero;
     Vector2 velocity = Vector2.zero;
     private bool _onWay;
@@ -32,6 +34,7 @@ public class ZombieManager : MonoBehaviour
         _attacking = false;
         _ma.updatePosition = false;
         _audio = this.GetComponent<AudioSource>();
+        SetDestination(GameManager.instance.Player.transform.position);
 
     }
 
@@ -66,8 +69,11 @@ public class ZombieManager : MonoBehaviour
         // Switch between idle and walk
         if (_attacking)
         {
-            _anim.Play("attack");
-            _audio.Play();
+            if (_audio.isPlaying == false)
+            {
+                _anim.Play("attack");
+                _audio.Play();
+            }
         }
         else if (shouldMove)
         {
@@ -94,7 +100,6 @@ public class ZombieManager : MonoBehaviour
         // Pull agent towards character
         if (worldDeltaPosition.magnitude > _ma.radius)
             _ma.nextPosition = transform.position + 0.9f * worldDeltaPosition;
-
     }
     void OnAnimatorMove()
     {
@@ -111,7 +116,8 @@ public class ZombieManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        _attacking = true;
+        if(other.gameObject.tag == "Player")
+            _attacking = true;
     }
     private void OnTriggerExit(Collider other)
     {

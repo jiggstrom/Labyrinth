@@ -260,8 +260,8 @@ public class Inventory : MonoBehaviour
         {
             m_cells[index].Add(it);
             OnInventoryChanged?.Invoke();
-            //if (index < m_toolCount)//if this cell is from tools panel -> call event handler
-            //    m_controller.SelectedToolChangedHandler();
+            if (index < m_toolCount)//if this cell is from tools panel -> call event handler
+                m_controller.SelectedToolChangedHandler();
             return true;
         }
         else

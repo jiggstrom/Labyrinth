@@ -24,8 +24,11 @@ public class HitableCrate : HitableObject
         if (m_hits <= 0)
         {
             // Spawn a shattered object
-            var n = Instantiate(DestroyedObjectPrefab, transform.position, transform.rotation);
-            n.GetComponent<ObjectVanish>().VanishInSeconds(3);
+            if (DestroyedObjectPrefab != null)
+            {
+                var n = Instantiate(DestroyedObjectPrefab, transform.position, transform.rotation);
+                n.GetComponent<ObjectVanish>()?.VanishInSeconds(3);
+            }
 
             for (int i = 0; i < m_stickCount; ++i) // instantiate sticks
             {
