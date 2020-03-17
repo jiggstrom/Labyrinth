@@ -12,19 +12,31 @@ public class PlayerVitals : MonoBehaviour {
     public Slider energySlider;
     public int maxEnergy;
     public int energyFallRate;
-
+    private float longpoll = 1f;
     public Text goldAmountText;
+    private int _energyFallRate;
 
     // Use this for initialization
-	void Start () {
+    void Start () {
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
         energySlider.maxValue = maxEnergy;
         energySlider.value = maxEnergy/8;
+        _energyFallRate = energyFallRate;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if((longpoll -= Time.deltaTime) < 0)
+        {
+            longpoll = 1f;
+            //TODO: Check for warm clotes equipped
+            if(GameManager.instance.inventory.PlayerHasItem("Helmet"))
+                _energyFallRate = energyFallRate/2;
+            else
+                _energyFallRate = energyFallRate;
+        }
+
 		if(energySlider.value <= 0)
         {
             energySlider.value = 0;

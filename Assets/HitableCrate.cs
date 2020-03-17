@@ -11,7 +11,6 @@ public class HitableCrate : HitableObject
 
     public override void HandleHit(ToolType toolType)
     {
-        Debug.Log($"Hit, tool is {toolType}");
         if (toolType == ToolType.Axe || toolType == ToolType.StoneFragment)
             if (m_audioSource)
                 m_audioSource.Play();

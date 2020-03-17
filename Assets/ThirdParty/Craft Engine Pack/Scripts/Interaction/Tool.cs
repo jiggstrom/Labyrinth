@@ -17,12 +17,13 @@ public class Tool : MonoBehaviour {
     public virtual void Action()
     {
         if (m_eyes.m_objectToHit)
+        {
             m_eyes.m_objectToHit.HandleHit(m_type);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log($"{gameObject.name} collided with {other.gameObject.name}");
         m_eyes?.GetComponent<ToolActionController>()?.HitSomeSuface();
     }
 }

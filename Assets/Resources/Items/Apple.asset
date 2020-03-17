@@ -16,7 +16,7 @@ MonoBehaviour:
   m_isVisibleInHands: 0
   LootType: 0
   m_name: Apple
-  m_prefab: 
+  m_prefab: Apple
   m_sprite: apple
-  m_maxCount: 0
+  m_maxCount: 20
   m_receiptItems: []

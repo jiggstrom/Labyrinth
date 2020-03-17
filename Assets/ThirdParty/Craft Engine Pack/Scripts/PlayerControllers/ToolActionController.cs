@@ -50,8 +50,10 @@ public class ToolActionController : MonoBehaviour {
     {
         if (m_multiplier < 0) return;
 
-        if (m_tool) // if we have tool -> call that 'Action' function
+        if (m_tool)
+        {
             m_tool.Action();
+        }
         m_multiplier *= -1.0f;
     }
 }

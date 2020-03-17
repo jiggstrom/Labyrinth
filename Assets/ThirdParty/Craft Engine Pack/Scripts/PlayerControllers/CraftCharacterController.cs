@@ -270,6 +270,8 @@ public class CraftCharacterController : MonoBehaviour
                     Destroy(collider);
             }
 
+            tool.layer = 0;
+
             //set position and rotation
             tool.transform.localPosition = new Vector3();
             tool.transform.localRotation = Quaternion.Euler(new Vector3());

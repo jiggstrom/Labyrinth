@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 95419548550635036}
   - component: {fileID: 65046719588038422}
   - component: {fileID: 908875237}
-  - component: {fileID: 8975867623211272317}
+  - component: {fileID: 1543804935}
   m_Layer: 9
   m_Name: Ingot
   m_TagString: Untagged
@@ -131,7 +131,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8975867623211272317
+--- !u!114 &1543804935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,10 +140,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1794837721014238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49500285f2f14334288f29e00331bc2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6665ea4b66becea4e939c2a43213390a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_itemDescription: {fileID: 11400000, guid: 0ca1ea7ba3139964bbfce9cd2ce39698, type: 2}
-  radius: 3
-  interactionTransform: {fileID: 4410312220538332}
+  m_itemDescription: {fileID: 11400000, guid: 6aa6ed623ff6ee04fa3d4a8b7efac270, type: 2}
   Amount: 100

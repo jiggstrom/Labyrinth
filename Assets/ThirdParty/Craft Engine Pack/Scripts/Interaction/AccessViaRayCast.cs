@@ -36,7 +36,7 @@ public class AccessViaRayCast : MonoBehaviour {
             {
                 if ((GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType ?? LootType.Asset) == LootType.Tool)
                 {
-                    m_interactionHintText.text = $" Click {m_hitKey.Key} to hit";
+                    m_interactionHintText.text = $" Click {m_hitKey.Key} to hit {m_objectToHit.name}";
                     GameManager.instance.onBeginLookAt(m_currentObject);
                 }
             }

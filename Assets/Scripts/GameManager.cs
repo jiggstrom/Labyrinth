@@ -47,9 +47,6 @@ public class GameManager : MonoBehaviour
     void Start () {
         fpc = Player.GetComponent<PlayerController>();
         inventory = Player.GetComponent<Inventory>();
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-        //Canvas.UIActive = false;
     }
 
     // Update is called once per frame
@@ -63,15 +60,6 @@ public class GameManager : MonoBehaviour
                 Canvas.ToggleMinimap();
             }
         }
-        //if (Input.GetButtonDown("Inventory"))
-        //{
-        //    Canvas.ToggleInventory();
-        //}
-        if (Input.GetButtonUp("Cancel"))
-        {
-            //CloseLootScreen();
-        }
-        //fpc.MouseLookEnabled = !Canvas.UIActive;
     }
 
 
@@ -91,18 +79,9 @@ public class GameManager : MonoBehaviour
         {
             Canvas.CloseLootscreen();
             LootTaken();
-            //fpc.MouseLookEnabled = true;
         }
-        //else
-        //{
-        //    LevelLoadManager.instance.Greet("Hej då, bättre lycka nästa gång!", "Meny");
-        //}
-    }
 
-    //internal void RemoveInventoryItem(Loot loot)
-    //{
-    //    Inventory.instance.RemoveInventoryItem(loot);
-    //}
+    }
 
     internal bool LootFound(ItemDescription loot, InteractableObject interactable, int amount = 0)
     {
@@ -123,12 +102,12 @@ public class GameManager : MonoBehaviour
                     vitals.GetHealth(amount);
                     return true;
                 }
-                else if (loot.LootType == LootType.Energy)
-                {
-                    var vitals = Player.GetComponent<PlayerVitals>();
-                    vitals.GetEnergy(amount);
-                    return true;
-                }
+                //else if (loot.LootType == LootType.Energy)
+                //{
+                //    var vitals = Player.GetComponent<PlayerVitals>();
+                //    vitals.GetEnergy(amount);
+                //    return true;
+                //}
                 else if (loot.LootType == LootType.Gold)
                 {
                     var vitals = Player.GetComponent<PlayerVitals>();
