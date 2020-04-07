@@ -63,6 +63,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b0f94b4f453fe694390c7390253f3543, type: 2}
+  - {fileID: 2100000, guid: 66eb3d88990318a45b418dd18dc22881, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,6 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a337ce73e21a649bf390d1669a38aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_itemDescription: {fileID: 0}
+  Amount: 1
   m_hits: 4
   m_stickCount: 3
   m_stickPrefab: {fileID: 1000012442026752, guid: 8631fae872618c44d99e2f58710ed073,

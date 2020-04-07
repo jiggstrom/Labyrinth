@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 0
   LootType: 4
   m_name: Coin
   m_prefab: 
   m_sprite: Coins
   m_maxCount: 0
+  InteractVerb: 
   m_receiptItems: []

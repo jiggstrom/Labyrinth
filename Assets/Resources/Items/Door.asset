@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Door
   m_EditorClassIdentifier: 
   m_isLiftable: 0
+  m_isInteractable: 1
   m_isVisibleInHands: 0
   LootType: 5
   m_name: Door
   m_prefab: Door
   m_sprite: door
   m_maxCount: 1
+  InteractVerb: open
   m_receiptItems:
   - {fileID: 11400000, guid: 4e8adfc6a23ecbe4ca5833fe475f62c0, type: 2}
   - {fileID: 11400000, guid: 4e8adfc6a23ecbe4ca5833fe475f62c0, type: 2}

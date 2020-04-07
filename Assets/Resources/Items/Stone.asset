@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   m_isLiftable: 0
+  m_isInteractable: 0
   m_isVisibleInHands: 0
   LootType: 6
   m_name: Stone
   m_prefab: Stone fragment
   m_sprite: stone fragment
   m_maxCount: 4
+  InteractVerb: 
   m_receiptItems: []

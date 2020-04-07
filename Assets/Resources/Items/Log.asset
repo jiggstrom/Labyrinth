@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Log
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 1
   LootType: 5
   m_name: Log
   m_prefab: WoodPeace
   m_sprite: wood
   m_maxCount: 2
+  InteractVerb: 
   m_receiptItems: []

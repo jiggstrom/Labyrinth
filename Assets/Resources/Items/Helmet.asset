@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Helmet
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 0
   LootType: 2
   m_name: Helmet
   m_prefab: 
   m_sprite: HelmetSprite
   m_maxCount: 1
+  InteractVerb: 
   m_receiptItems: []

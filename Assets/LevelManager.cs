@@ -47,13 +47,14 @@ public class LevelManager : MonoBehaviour
     {
         if (!HasInteracted)
             GameManager.instance.ShowHint("Tryck höger musknapp för att interagera med saker.");
+        x.ShowOutlineMaterial();
 
     }
     private void StopLookAt(InteractableObject x)
     {
         if (!HasInteracted)
             GameManager.instance.HideHint();
-
+        x.HideOutlineMaterial();
     }
 
     private void InventoryChanged()

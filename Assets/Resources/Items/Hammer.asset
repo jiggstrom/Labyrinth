@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 1
   LootType: 6
   m_name: Hammer
   m_prefab: Hammer
   m_sprite: hammer
   m_maxCount: 1
+  InteractVerb: 
   m_receiptItems:
   - {fileID: 11400000, guid: e18ce97a594f2d44cba3b075c462f924, type: 2}
   - {fileID: 11400000, guid: 1db6eec645f605c4fad5d8c9461befee, type: 2}

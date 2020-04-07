@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Map
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 0
   LootType: 5
   m_name: Map
   m_prefab: 
   m_sprite: scroll
   m_maxCount: 1
+  InteractVerb: 
   m_receiptItems: []

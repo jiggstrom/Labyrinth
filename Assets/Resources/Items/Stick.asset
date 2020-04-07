@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Stick
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 1
   LootType: 6
   m_name: Stick
   m_prefab: Stick
   m_sprite: stick
   m_maxCount: 8
+  InteractVerb: 
   m_receiptItems: []

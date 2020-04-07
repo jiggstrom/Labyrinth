@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Wall
   m_EditorClassIdentifier: 
   m_isLiftable: 0
+  m_isInteractable: 0
   m_isVisibleInHands: 0
   LootType: 5
   m_name: Wall
   m_prefab: Wall
   m_sprite: wall
   m_maxCount: 1
+  InteractVerb: 
   m_receiptItems:
   - {fileID: 11400000, guid: 4e8adfc6a23ecbe4ca5833fe475f62c0, type: 2}
   - {fileID: 11400000, guid: 4e8adfc6a23ecbe4ca5833fe475f62c0, type: 2}

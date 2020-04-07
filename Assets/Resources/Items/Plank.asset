@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Plank
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 0
   LootType: 5
   m_name: Plank
   m_prefab: Plank
   m_sprite: wood
   m_maxCount: 5
+  InteractVerb: 
   m_receiptItems: []

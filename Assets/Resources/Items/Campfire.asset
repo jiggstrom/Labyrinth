@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Campfire
   m_EditorClassIdentifier: 
   m_isLiftable: 0
+  m_isInteractable: 1
   m_isVisibleInHands: 0
   LootType: 5
   m_name: Campfire
   m_prefab: Campfire
   m_sprite: campfire
   m_maxCount: 1
+  InteractVerb: light
   m_receiptItems:
   - {fileID: 11400000, guid: e18ce97a594f2d44cba3b075c462f924, type: 2}
   - {fileID: 11400000, guid: e18ce97a594f2d44cba3b075c462f924, type: 2}

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 1
   m_isVisibleInHands: 0
   LootType: 0
   m_name: Apple
   m_prefab: Apple
   m_sprite: apple
   m_maxCount: 20
+  InteractVerb: eat
   m_receiptItems: []

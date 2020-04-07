@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Rock
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 1
   LootType: 6
   m_name: Rock
   m_prefab: Rock
   m_sprite: rock
   m_maxCount: 1
+  InteractVerb: 
   m_receiptItems: []

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Chest
   m_EditorClassIdentifier: 
   m_isLiftable: 0
+  m_isInteractable: 1
   m_isVisibleInHands: 0
   LootType: 5
   m_name: Chest
   m_prefab: Chest
   m_sprite: chest
   m_maxCount: 1
+  InteractVerb: open
   m_receiptItems: []
