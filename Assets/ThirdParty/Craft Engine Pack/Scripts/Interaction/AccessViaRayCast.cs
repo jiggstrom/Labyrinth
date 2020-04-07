@@ -32,13 +32,12 @@ public class AccessViaRayCast : MonoBehaviour {
 
         if (!GameManager.instance.Canvas.LootScreen.activeInHierarchy && Physics.SphereCast(m_camera.transform.position, m_rayWidth, m_camera.transform.forward, out hit, m_maxDistance, 512)) // raycast forward from camera (only objects with "Visible" layer set)
         {
-            if(m_objectToHit = hit.collider.gameObject.GetComponent<HitableObject>())
+            m_objectToHit = hit.collider.gameObject.GetComponent<HitableObject>();
+            if (m_objectToHit && (GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType ?? LootType.Asset) == LootType.Tool)
             {
-                if ((GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType ?? LootType.Asset) == LootType.Tool)
-                {
-                    m_interactionHintText.text = $" Click {m_hitKey.Key} to hit {m_objectToHit.name}";
-                    GameManager.instance.onBeginLookAt(m_currentObject);
-                }
+                m_interactionHintText.text = $" Click {m_hitKey.Key} to hit {m_objectToHit.m_itemDescription.name}";
+                m_currentObject = hit.collider.gameObject.GetComponent<InteractableObject>();
+                GameManager.instance.onBeginLookAt(m_currentObject);
             }
             else if (!hit.collider.isTrigger && (m_currentObject = hit.collider.gameObject.GetComponent<InteractableObject>()) )
             {

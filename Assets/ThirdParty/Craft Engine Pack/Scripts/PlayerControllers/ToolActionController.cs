@@ -36,6 +36,7 @@ public class ToolActionController : MonoBehaviour {
         m_hands.localRotation = Quaternion.Euler(m_startAngleX + m_angle, m_shiftY, m_hands.localRotation.x);
         if(m_angle == m_targetAngle)
         {
+            Debug.Log($"Hit with {m_tool?.name}");
             if (m_tool) // if we have tool -> call that 'Action' function
                 m_tool.Action();
 
@@ -49,7 +50,7 @@ public class ToolActionController : MonoBehaviour {
     public void HitSomeSuface()
     {
         if (m_multiplier < 0) return;
-
+        Debug.Log($"Hit with {m_tool?.name}");
         if (m_tool)
         {
             m_tool.Action();

@@ -278,7 +278,9 @@ public class CraftCharacterController : MonoBehaviour
 
             //if item is tool -> set reference to eyes for it
             if (m_toolActionController.m_tool = tool.GetComponent<Tool>())
+            {
                 m_toolActionController.m_tool.m_eyes = m_eyes;
+            }
         }
     }
 }
