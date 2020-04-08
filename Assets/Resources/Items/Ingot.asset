@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Ingot
   m_EditorClassIdentifier: 
   m_isLiftable: 1
+  m_isInteractable: 0
   m_isVisibleInHands: 0
   LootType: 4
   m_name: Ingot
   m_prefab: Ingot
   m_sprite: ingots
   m_maxCount: 50
+  InteractVerb: 
   m_receiptItems: []

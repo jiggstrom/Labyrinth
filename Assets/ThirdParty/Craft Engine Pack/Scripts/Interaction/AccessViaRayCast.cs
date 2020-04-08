@@ -41,7 +41,7 @@ public class AccessViaRayCast : MonoBehaviour {
             if (m_currentObject == m_prevCurObject) return;
             if (m_prevCurObject) GameManager.instance.StopLookAt(m_prevCurObject);
 
-            if (m_objectToHit && GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType == LootType.Tool)
+            if (m_objectToHit && GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType == LootType.Tool && !m_currentObject.m_itemDescription.m_isLiftable)
             {
 
                  if ((GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType == LootType.Tool && (m_objectToHit.effectiveTools?.Length ?? 0) == 0) || m_objectToHit.effectiveTools.Contains(GameManager.instance.inventory.m_selectedToolCell?.m_item)) {
@@ -52,7 +52,7 @@ public class AccessViaRayCast : MonoBehaviour {
             else if (!hit.collider.isTrigger && m_currentObject && m_currentObject.m_itemDescription.m_isLiftable)
             {
                 //print interaction key and hint to interact
-                m_interactionHintText.text = $"{ m_interactionKey.Key} to {(m_currentObject.m_itemDescription.m_isLiftable ? "pick up" : "interact with")} a {m_currentObject.m_itemDescription.m_name}";
+                m_interactionHintText.text = $"{ m_interactionKey.Key} to pick up {m_currentObject.m_itemDescription.m_name}";
                 GameManager.instance.LookAt(m_currentObject);
             }
             else if (!hit.collider.isTrigger && m_currentObject && m_currentObject.m_itemDescription.m_isInteractable)

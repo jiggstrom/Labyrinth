@@ -42,7 +42,6 @@ public class InteractableObject : MonoBehaviour {
         {
             OutlineWidthValue = OutlineWidthValue * renderer1.transform.localScale.magnitude;
 
-            Debug.Log($"Hiding outline for {this.name}");
             _outlineMaterial.SetFloat(OutlineWidthKey, 0);
         }
     }

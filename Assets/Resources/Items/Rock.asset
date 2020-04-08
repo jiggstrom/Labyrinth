@@ -19,6 +19,6 @@ MonoBehaviour:
   m_name: Rock
   m_prefab: Rock
   m_sprite: rock
-  m_maxCount: 1
+  m_maxCount: 20
   InteractVerb: 
   m_receiptItems: []

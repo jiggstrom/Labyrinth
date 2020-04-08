@@ -11,6 +11,8 @@ public class ZombieManager : MonoBehaviour
     private NavMeshAgent _ma;
     NavMeshPath path;
 
+    [SerializeField] private GameObject Waypoints;
+
     Vector2 smoothDeltaPosition = Vector2.zero;
     Vector2 velocity = Vector2.zero;
     private bool _onWay;
@@ -64,7 +66,7 @@ public class ZombieManager : MonoBehaviour
             velocity = smoothDeltaPosition / Time.deltaTime;
 
         bool shouldMove = velocity.magnitude > 0.5f && _ma.remainingDistance > (_ma.stoppingDistance +.5);
-        // Debug.Log("rem.dist:" +_ma.remainingDistance);
+        //Debug.Log("rem.dist:" +_ma.remainingDistance);
 
         // Switch between idle and walk
         if (_attacking)
@@ -89,12 +91,23 @@ public class ZombieManager : MonoBehaviour
                 if (Random.value > 0.99)
                     _audio.Play();
 
-            if (!_onWay)
+            if (_onWay)
             {
-                if (onArrived != null) onArrived.Invoke();
+                if (_ma.remainingDistance < 2f && _ma.pathStatus == NavMeshPathStatus.PathComplete)
+                {
+                    Debug.Log("Zombie arrived");
+                    if (onArrived != null) onArrived.Invoke();
+                    _onWay = false;
+
+                    var cntWaypoints = Waypoints.transform.childCount;
+                    if (cntWaypoints > 0)
+                    {
+                        var newTarget = Waypoints.transform.GetChild(Random.Range(0, cntWaypoints)).transform;
+                        SetDestination(newTarget.position);
+                    }
+                }
             }
 
-            _onWay = false;
         }
 
         // Pull agent towards character

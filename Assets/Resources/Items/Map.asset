@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9c8879c1dc54a4ca8bf954586e1537, type: 3}
   m_Name: Map
   m_EditorClassIdentifier: 
-  m_isLiftable: 1
+  m_isLiftable: 0
   m_isInteractable: 0
   m_isVisibleInHands: 0
   LootType: 5
