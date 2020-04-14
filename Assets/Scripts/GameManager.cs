@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private InteractableObject currentInteractable;
 
-    public delegate void OnBeginLookAt(InteractableObject obj);
+    public delegate void OnBeginLookAt(InteractableObject obj, bool currentlyInteractable);
     public OnBeginLookAt onBeginLookAt;
 
     public delegate void OnStopLookAt(InteractableObject obj);
@@ -177,9 +177,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LookAt(InteractableObject i)
+    public void LookAt(InteractableObject i, bool isCurrentlyInteractable)
     {
-        if (onBeginLookAt != null) onBeginLookAt.Invoke(i);
+        if (onBeginLookAt != null) onBeginLookAt.Invoke(i, isCurrentlyInteractable);
     }
     public void StopLookAt(InteractableObject i)
     {

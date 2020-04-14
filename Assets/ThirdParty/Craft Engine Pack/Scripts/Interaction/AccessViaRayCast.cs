@@ -18,7 +18,6 @@ public class AccessViaRayCast : MonoBehaviour {
     private InteractableObject m_prevCurObject;
 
     public HitableObject m_objectToHit { get; private set; }// hitable object we see at the moment
-    Inventory m_inventory;
     void Start()
     {
         m_currentObject = null;
@@ -26,11 +25,9 @@ public class AccessViaRayCast : MonoBehaviour {
         m_interactionKey = m_inputManager.GetInputUnit(InputManager.InteractGroup, InputManager.Interaction);
         m_hitKey = m_inputManager.GetInputUnit(InputManager.InteractGroup, InputManager.InteractionHit);
         m_interactionHintText.text = "";
-        m_inventory = GetComponent<Inventory>();
     }
     void Update()
     {
-        //Ray ray = new Ray(m_camera.transform.position, m_camera.transform.forward);
         RaycastHit hit;
 
         if (!GameManager.instance.Canvas.LootScreen.activeInHierarchy && Physics.SphereCast(m_camera.transform.position, m_rayWidth, m_camera.transform.forward, out hit, m_maxDistance, 512)) // raycast forward from camera (only objects with "Visible" layer set)
@@ -39,38 +36,54 @@ public class AccessViaRayCast : MonoBehaviour {
             m_currentObject = hit.collider.gameObject.GetComponent<InteractableObject>();
 
             if (m_currentObject == m_prevCurObject) return;
-            if (m_prevCurObject) GameManager.instance.StopLookAt(m_prevCurObject);
+            if (m_prevCurObject)
+            {
+                m_prevCurObject.HideOutlineMaterial();
+                GameManager.instance.StopLookAt(m_prevCurObject);
+            }
+
+            var isCurrentlyInteractable = false;
 
             if (m_objectToHit && GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType == LootType.Tool && !m_currentObject.m_itemDescription.m_isLiftable)
             {
 
-                 if ((GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType == LootType.Tool && (m_objectToHit.effectiveTools?.Length ?? 0) == 0) || m_objectToHit.effectiveTools.Contains(GameManager.instance.inventory.m_selectedToolCell?.m_item)) {
-                    m_interactionHintText.text = $" Click {m_hitKey.Key} to hit {m_objectToHit.m_itemDescription.name}";
-                    GameManager.instance.LookAt(m_currentObject);
+                if ((GameManager.instance.inventory.m_selectedToolCell?.m_item?.LootType == LootType.Tool && (m_objectToHit.effectiveTools?.Length ?? 0) == 0) || m_objectToHit.effectiveTools.Contains(GameManager.instance.inventory.m_selectedToolCell?.m_item)) {
+                    m_interactionHintText.text = $" Click to hit {m_objectToHit.m_itemDescription.name}";
+                    m_currentObject.ShowOutlineMaterial();
+                    isCurrentlyInteractable = true;
                 }
             }
             else if (!hit.collider.isTrigger && m_currentObject && m_currentObject.m_itemDescription.m_isLiftable)
             {
-                //print interaction key and hint to interact
                 m_interactionHintText.text = $"{ m_interactionKey.Key} to pick up {m_currentObject.m_itemDescription.m_name}";
-                GameManager.instance.LookAt(m_currentObject);
+                m_currentObject.ShowOutlineMaterial();
+                isCurrentlyInteractable = true;
             }
             else if (!hit.collider.isTrigger && m_currentObject && m_currentObject.m_itemDescription.m_isInteractable)
             {
-                //print interaction key and hint to interact
                 m_interactionHintText.text = $"{ m_interactionKey.Key} to {m_currentObject.m_itemDescription.InteractVerb} {m_currentObject.m_itemDescription.m_name}";
-                GameManager.instance.LookAt(m_currentObject);
+                m_currentObject.ShowOutlineMaterial();
+                isCurrentlyInteractable = true;
             }
             else
             {
-                GameManager.instance.StopLookAt(m_currentObject);
+                m_currentObject.HideOutlineMaterial();
                 m_interactionHintText.text = "";
             }
+
+            GameManager.instance.LookAt(m_currentObject, isCurrentlyInteractable);
+
             m_prevCurObject = m_currentObject;
         }
         else
         {
-            if(m_currentObject) GameManager.instance.StopLookAt(m_currentObject);
+
+            if(m_currentObject)
+            {
+                m_currentObject.HideOutlineMaterial();
+                GameManager.instance.StopLookAt(m_currentObject);
+            }
+
             m_interactionHintText.text = "";
             m_currentObject = null;
             m_prevCurObject = null;

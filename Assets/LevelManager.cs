@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     private bool MapChecked;
     private bool HasInteracted;
     public DoorInteractable levelExitDoor;
+    private bool _rocksObstaclePassed = false;
 
     // Use this for initialization
     void Start()
@@ -41,31 +42,39 @@ public class LevelManager : MonoBehaviour
     private void SetHasInteracted(InteractableObject obj)
     {
         HasInteracted = true;
+        if (obj.CompareTag("RocksObstacle")) _rocksObstaclePassed = true;
     }
 
-    private void BeginLookAt(InteractableObject x)
+    private void BeginLookAt(InteractableObject x, bool currentlyInteractable)
     {
-        if (!HasInteracted)
-            GameManager.instance.ShowHint("Tryck höger musknapp för att interagera med saker.");
-        x.ShowOutlineMaterial();
+        if (!HasInteracted && currentlyInteractable)
+        {
+            GameManager.instance.ShowHint("Tryck [E] för att interagera med saker.");
+        }
+
+        if (!_rocksObstaclePassed && !currentlyInteractable && x.CompareTag("RocksObstacle"))
+        {
+            GameManager.instance.ShowHint("Hmm, vad finns där bakom? Om jag bara hade haft en hammare att krossa stenarna med.");
+        }
+
 
     }
     private void StopLookAt(InteractableObject x)
     {
         if (!HasInteracted)
             GameManager.instance.HideHint();
-        x.HideOutlineMaterial();
+
     }
 
     private void InventoryChanged()
     {
         if (GameManager.instance.inventory.PlayerHasItem("Map") && !MapChecked)
         {
-            GameManager.instance.ShowHint("Tryck 'M' för att visa/dölja kartan.");
+            GameManager.instance.ShowHint("Tryck [M] för att visa/dölja kartan.");
         }
         else if (!InventoryChecked)
         {
-            GameManager.instance.ShowHint("Tryck 'E' för att visa/dölja inventory.");
+            GameManager.instance.ShowHint("Tryck [Tab]' för att visa/dölja inventory.");
         }
 
     }
