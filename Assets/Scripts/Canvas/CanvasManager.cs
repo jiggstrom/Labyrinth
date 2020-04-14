@@ -16,7 +16,6 @@ public class CanvasManager : MonoBehaviour
     public GameObject LootScreen;
     public GameObject HintMsg;
     private bool _UIActive = false;
-    private bool SetCursorLock = false;
 
     internal void ToggleMinimap()
     {
@@ -40,15 +39,11 @@ public class CanvasManager : MonoBehaviour
         {
             Inventory.SetActive(false);            
             UIActive = false;
-            SetCursorLock = true; //Update on next frame
         }
         else
         {
             Inventory.SetActive(true);
-            //Cursor.lockState = CursorLockMode.None;
-            //Cursor.visible = true;
             UIActive = true;
-            SetCursorLock = true; //Update on next frame
         }
     }
 
@@ -67,7 +62,6 @@ public class CanvasManager : MonoBehaviour
     {
         LootScreen.SetActive(true);
         UIActive = true;
-        SetCursorLock = true; //Update on next frame
 
     }
 
@@ -75,7 +69,6 @@ public class CanvasManager : MonoBehaviour
     {
         LootScreen.SetActive(false);
         UIActive = false;
-        SetCursorLock = true; //Update on next frame
     }
 
     internal void ShowHint(string text)
