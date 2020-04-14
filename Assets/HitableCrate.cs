@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HitableCrate : HitableObject
@@ -9,16 +10,13 @@ public class HitableCrate : HitableObject
     public GameObject m_stickPrefab;
     public GameObject DestroyedObjectPrefab;
 
-    public override void HandleHit(ToolType toolType)
+    public override void HandleHit(ItemDescription toolType)
     {
-        if (toolType == ToolType.Axe || toolType == ToolType.StoneFragment)
+        if (effectiveTools.Contains(toolType))
             if (m_audioSource)
                 m_audioSource.Play();
 
-        if (toolType == ToolType.Axe)//axe better chops
-            m_hits -= 2;
-        else if (toolType == ToolType.StoneFragment)
-            m_hits -= 1;
+        m_hits -= toolType.ToolHitValue;
 
         if (m_hits <= 0)
         {

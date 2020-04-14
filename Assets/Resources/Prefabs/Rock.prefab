@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df195182cf071b4baad7f050f2adefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_type: {fileID: 11400000, guid: 1db6eec645f605c4fad5d8c9461befee, type: 2}
 --- !u!82 &82325972274994956
 AudioSource:
   m_ObjectHideFlags: 0
@@ -188,9 +188,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca40a2bd5f5324743b07cedc9262bcfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_itemDescription: {fileID: 0}
+  m_itemDescription: {fileID: 11400000, guid: 1db6eec645f605c4fad5d8c9461befee, type: 2}
   Amount: 1
-  effectiveTools: []
+  effectiveTools:
+  - {fileID: 11400000, guid: 0c180762db0b46049b06ae86fd21bcb9, type: 2}
+  - {fileID: 11400000, guid: 7d81ace4e9263e94488a684042fc073f, type: 2}
   m_hits: 4
   m_fragmentPrefab: {fileID: 1620097316587826, guid: 20acce6ac2c0856499260a7f1b48f256,
     type: 3}

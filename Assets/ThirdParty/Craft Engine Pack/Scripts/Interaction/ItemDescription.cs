@@ -15,6 +15,7 @@ public class ItemDescription : ScriptableObject
     public int m_maxCount;// max count of stack. 1 - > non-stackable
     public string InteractVerb;
     public ItemDescription[] m_receiptItems;
+    public int ToolHitValue = 1;
     public bool Equals(ItemDescription item)
     {
         return item.m_name == m_name;

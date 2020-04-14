@@ -22,3 +22,4 @@ MonoBehaviour:
   m_maxCount: 20
   InteractVerb: 
   m_receiptItems: []
+  ToolHitValue: 3

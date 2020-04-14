@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_itemDescription: {fileID: 11400000, guid: 7d81ace4e9263e94488a684042fc073f, type: 2}
+  Amount: 1
 --- !u!114 &114086053744132958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df195182cf071b4baad7f050f2adefd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 3
+  m_type: {fileID: 11400000, guid: 7d81ace4e9263e94488a684042fc073f, type: 2}
 --- !u!65 &65035194142135664
 BoxCollider:
   m_ObjectHideFlags: 0

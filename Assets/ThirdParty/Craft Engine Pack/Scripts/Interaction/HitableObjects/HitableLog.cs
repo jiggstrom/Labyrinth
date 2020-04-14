@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HitableLog : HitableObject {
@@ -8,18 +9,16 @@ public class HitableLog : HitableObject {
     public uint m_stickCount = 5;//drop count
     public GameObject m_stickPrefab;
 
-    public override void HandleHit(ToolType toolType)
+    public override void HandleHit(ItemDescription toolType)
     {
-        if (toolType == ToolType.Axe || toolType == ToolType.StoneFragment)
+        if (effectiveTools.Contains(toolType))
             if (m_audioSource)
                 m_audioSource.Play();
 
-        if (toolType == ToolType.Axe)//axe better chops
-            m_hits -= 2;
-        else if (toolType == ToolType.StoneFragment)
-            m_hits -= 1;
 
-        if(m_hits <= 0)
+        m_hits -= toolType.ToolHitValue;
+
+        if (m_hits <= 0)
         {
             for (int i = 0; i < m_stickCount; ++i) // instantiate sticks
             {

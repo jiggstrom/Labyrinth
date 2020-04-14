@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HitableTree : HitableObject {
@@ -14,16 +15,14 @@ public class HitableTree : HitableObject {
     public GameObject m_woodPrefab;
     public GameObject m_stickPrefab;
 
-    public override void HandleHit(ToolType toolType)
+    public override void HandleHit(ItemDescription toolType)
     {
-        if (toolType == ToolType.Axe || toolType == ToolType.StoneFragment)
+        if (effectiveTools.Contains(toolType))
             if (m_audioSource)
                 m_audioSource.Play();
 
-        if (toolType == ToolType.Axe) // axe chops better
-            m_hits -= m_axeHitValue;
-        else if (toolType == ToolType.StoneFragment)
-            m_hits -= m_stoneFragmentHitValue;
+
+        m_hits -= toolType.ToolHitValue;
 
         if (m_hits <= 0)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HitableStone : HitableObject {
@@ -12,16 +13,15 @@ public class HitableStone : HitableObject {
     public GameObject m_rockPrefab;
 
     int m_hits = 0;
-    public override void HandleHit(ToolType toolType)
+    public override void HandleHit(ItemDescription toolType)
     {
-        if (toolType == ToolType.Hammer || toolType == ToolType.Rock)
+        if (effectiveTools.Contains(toolType))
             if (m_audioSource)
                 m_audioSource.Play();
 
-        if (toolType == ToolType.Hammer)//hammer hits better
-            m_hits += m_hammerHitValue;
-        else if (toolType == ToolType.Rock)
-            m_hits += m_rockHitValue;
+
+        m_hits += toolType.ToolHitValue;
+
         if(m_hits >= m_hitsPerRock)
         {
             if(m_rocks == 2)//last hit -> instantiate 2 rocks and destroy self

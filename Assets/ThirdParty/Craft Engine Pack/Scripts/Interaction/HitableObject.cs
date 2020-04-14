@@ -10,7 +10,7 @@ public class HitableObject : InteractableObject {
         base.Init();
         m_audioSource = GetComponent<AudioSource>();
     }
-    public virtual void HandleHit(ToolType toolType)
+    public virtual void HandleHit(ItemDescription toolType)
     {
 
     }

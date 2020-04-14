@@ -12,7 +12,7 @@ public enum ToolType
 }
 
 public class Tool : MonoBehaviour {
-    public ToolType m_type;
+    public ItemDescription m_type;
     public AccessViaRayCast m_eyes { get; set; }
     public virtual void Action()
     {

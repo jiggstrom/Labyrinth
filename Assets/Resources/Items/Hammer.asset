@@ -24,3 +24,4 @@ MonoBehaviour:
   m_receiptItems:
   - {fileID: 11400000, guid: e18ce97a594f2d44cba3b075c462f924, type: 2}
   - {fileID: 11400000, guid: 1db6eec645f605c4fad5d8c9461befee, type: 2}
+  ToolHitValue: 10
